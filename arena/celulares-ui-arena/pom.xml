@@ -8,11 +8,11 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>celulares-ui-arena</name>
 	<url>http://maven.apache.org</url>
-
+	
 	<parent>
 		<groupId>uqbar</groupId>
-		<artifactId>uqbar-parent-project</artifactId>
-		<version>1.5</version>
+		<artifactId>arena-parent</artifactId>
+		<version>1.0</version>
 	</parent>
 
 	<build>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>uqbar</groupId>
 			<artifactId>arena</artifactId>
-			<version>3.0-SNAPSHOT</version>
+			<version>${arena-version}</version>
 		</dependency>
 	</dependencies>
 </project>

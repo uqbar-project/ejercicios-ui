@@ -3,8 +3,8 @@ package org.uqbar.edu.paiu.examples.celulares.dao;
 import java.io.Serializable;
 import java.util.Iterator;
 
-import org.apache.commons.collections.Predicate;
-import org.apache.commons.collections.functors.AndPredicate;
+import org.apache.commons.collections15.Predicate;
+import org.apache.commons.collections15.functors.AndPredicate;
 import org.uqbar.commons.model.CollectionBasedHome;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
@@ -18,32 +18,30 @@ public class RepositorioCelulares extends CollectionBasedHome<Celular> implement
 	private static RepositorioCelulares instance;
 
 	@Override
-	protected Predicate getCriterio(Celular example) {
-		Predicate resultPredicate = this.getCriterioTodas();
+	protected Predicate<Celular> getCriterio(Celular example) {
+		Predicate<Celular> resultPredicate = this.getCriterioTodas();
 		if (example.ingresoNombre()) {
-			resultPredicate = new AndPredicate(resultPredicate, this.getCriterioPorNombre(example));
+			resultPredicate = new AndPredicate<Celular>(resultPredicate, this.getCriterioPorNombre(example));
 		}
 		if (example.ingresoNumero()) {
-			resultPredicate = new AndPredicate(resultPredicate, this.getCriterioPorNumero(example));
+			resultPredicate = new AndPredicate<Celular>(resultPredicate, this.getCriterioPorNumero(example));
 		}
 		return resultPredicate;
 	}
 
-	protected Predicate getCriterioPorNombre(final Celular celularBuscado) {
-		return new Predicate() {
+	protected Predicate<Celular> getCriterioPorNombre(final Celular celularBuscado) {
+		return new Predicate<Celular>() {
 			@Override
-			public boolean evaluate(Object arg) {
-				Celular unCelular = (Celular) arg;
+			public boolean evaluate(Celular unCelular) {
 				return unCelular.getNombre().toLowerCase().contains(celularBuscado.getNombre().toLowerCase());
 			}
 		};
 	}
 
-	protected Predicate getCriterioPorNumero(final Celular celularBuscado) {
-		return new Predicate() {
+	protected Predicate<Celular> getCriterioPorNumero(final Celular celularBuscado) {
+		return new Predicate<Celular>() {
 			@Override
-			public boolean evaluate(Object arg) {
-				Celular unCelular = (Celular) arg;
+			public boolean evaluate(Celular unCelular) {
 				return unCelular.getNumero() == null || unCelular.getNumero().equals(celularBuscado.getNumero());
 			}
 		};

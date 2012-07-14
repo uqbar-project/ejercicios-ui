@@ -1,6 +1,6 @@
 package org.uqbar.edu.paiu.examples.celulares.dao;
 
-import org.apache.commons.collections.Predicate;
+import org.apache.commons.collections15.Predicate;
 import org.uqbar.commons.model.CollectionBasedHome;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
 
@@ -23,7 +23,7 @@ public class RepositorioModelos extends CollectionBasedHome<ModeloCelular> {
 	}
 
 	@Override
-	protected Predicate getCriterio(ModeloCelular example) {
+	protected Predicate<ModeloCelular> getCriterio(ModeloCelular example) {
 		// TODO: Cambiar para la búsqueda
 		return this.getCriterioTodas();
 	}

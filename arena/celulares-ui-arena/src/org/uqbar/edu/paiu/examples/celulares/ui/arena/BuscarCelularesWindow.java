@@ -1,5 +1,7 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
+import java.awt.Color;
+
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.bindings.NotNullObservable;
 import org.uqbar.arena.layout.ColumnLayout;
@@ -63,10 +65,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		searchFormPanel.bindContents(SearchByExample.EXAMPLE);
 		searchFormPanel.setLayout(new ColumnLayout(2));
 
-		new Label(searchFormPanel).setText("Número");
+		new Label(searchFormPanel).setText("Número").setForeground(Color.BLUE);
 		new TextBox(searchFormPanel).bindValueToProperty(Celular.NUMERO);
 
-		new Label(searchFormPanel).setText("Nombre del cliente");
+		new Label(searchFormPanel).setText("Nombre del cliente").setForeground(Color.BLUE);
 		new TextBox(searchFormPanel).bindValueToProperty(Celular.NOMBRE);
 	}
 
@@ -152,6 +154,9 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 				}
 			}
 		});
+		
+		table.setWidth(450);
+		table.setHeigth(200);
 	}
 
 	protected void createGridActions(Panel mainPanel) {
