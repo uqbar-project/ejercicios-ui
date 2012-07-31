@@ -46,11 +46,7 @@ public class Celular extends Entity {
 	}
 	
 	public void setNumero(Integer numero) {
-//		this.setFieldValue(NUMERO, numero);
-//      otra forma tambien puede ser
-//		Integer oldNumero = this.getNumero();
 		this.numero = numero;
-//		this.firePropertyChange(Celular.NUMERO, oldNumero, numero);
 	}
 	
 	public String getNombre() {
@@ -59,7 +55,6 @@ public class Celular extends Entity {
 	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-//		this.setFieldValue(NOMBRE, nombre);
 	}
 	
 	public ModeloCelular getModeloCelular() {
@@ -68,7 +63,6 @@ public class Celular extends Entity {
 	
 	public void setModeloCelular(ModeloCelular modeloCelular) {
 		this.modeloCelular = modeloCelular;
-//		this.setFieldValue(MODELO_CELULAR, modeloCelular);
 	}
 	
 	public boolean isRecibeResumenCuenta() {
@@ -77,7 +71,6 @@ public class Celular extends Entity {
 	
 	public void setRecibeResumenCuenta(boolean recibeResumenCuenta) {
 		this.recibeResumenCuenta = recibeResumenCuenta;
-//		this.setFieldValue(RECIBE_CUENTA_DOMICILIO, recibeResumenCuenta);
 	}
 	
 	@Override
@@ -143,6 +136,14 @@ public class Celular extends Entity {
 	@Override
 	public void validateCreate() {
 		this.validar();
+	}
+
+	public Boolean getRecibeResumenCuenta() {
+		return recibeResumenCuenta;
+	}
+
+	public void setRecibeResumenCuenta(Boolean recibeResumenCuenta) {
+		this.recibeResumenCuenta = recibeResumenCuenta;
 	}
 	
 
