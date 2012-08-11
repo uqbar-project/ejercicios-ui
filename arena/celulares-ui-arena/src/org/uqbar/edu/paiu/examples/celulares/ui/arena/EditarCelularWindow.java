@@ -65,13 +65,14 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 	 */
 	@Override
 	protected void executeTask() {
-		super.executeTask();
 		Celular celular = this.getModelObject();
-//		celular.validar();
+		celular.validar();
 		if (celular.isNew()) {
 			this.home.create(celular);
 		} else {
 			this.home.update(celular);
 		}
+		
+		super.executeTask();
 	}
 }
