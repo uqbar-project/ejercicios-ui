@@ -176,31 +176,25 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		remove.onClick(new MessageSend(this.getModelObject(), "removeSelected"));
 	}
 
-	/**************************************************************************
+	/**
+	 * ************************************************************************
 	 * ACCIONES 
 	 * ************************************************************************
 	 */
 	public void crearCelular() {
-		this.editarCelular(true);
+		this.editarCelular(RepositorioCelulares.getInstance().createExample());
 	}
 
 	public void modificarCelular() {
-		this.editarCelular(false);
+		this.editarCelular(this.getModelObject().getSelected());
 	}
 
 	/**
 	 * Dispara la edición de un celular (invocando a la vista correspondiente)
 	 * pero además dispara una nueva búsqueda (Search) en caso de que el usuario presione Aceptar en la edición
 	 */
-	public void editarCelular(boolean alta) {
-		Celular celularAEditar;
-		if (alta) {
-			celularAEditar = RepositorioCelulares.getInstance().createExample();
-		} else {
-			// TODO: Explicar que la modificación no debe completarse si el usuario cancela
-			celularAEditar = this.getModelObject().getSelected();
-		}
-		Dialog<?> editor = new EditarCelularWindow(this, celularAEditar);
+	public void editarCelular(Celular celular) {
+		Dialog<?> editor = new EditarCelularWindow(this, celular);
 		editor.onAccept(new MessageSend(this.getModelObject(), Search.SEARCH));
 		editor.open();
 	}

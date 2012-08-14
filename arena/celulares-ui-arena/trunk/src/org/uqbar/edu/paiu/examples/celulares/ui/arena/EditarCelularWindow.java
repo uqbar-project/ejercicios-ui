@@ -72,7 +72,6 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		} else {
 			this.home.update(celular);
 		}
-		
 		super.executeTask();
 	}
 }

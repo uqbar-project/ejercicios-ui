@@ -5,7 +5,7 @@
 	<groupId>org.uqbar.edu.paiu</groupId>
 	<artifactId>celulares-ui-arena</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>3.0-SNAPSHOT</version>
 	<name>celulares-ui-arena</name>
 	<url>http://maven.apache.org</url>
 	
