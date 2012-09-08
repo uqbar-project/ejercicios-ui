@@ -1,41 +1,46 @@
 package org.uqbar.edu.paiu.examples.celulares.dao;
 
-import org.apache.commons.collections15.Predicate;
-import org.uqbar.commons.model.CollectionBasedHome;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
 
-
-public class RepositorioModelos extends CollectionBasedHome<ModeloCelular> {
-
+@Observable
+public class RepositorioModelos implements Serializable {
 	private static RepositorioModelos instance;
-	
+	private List<ModeloCelular> data = new ArrayList<ModeloCelular>();
+
 	public static RepositorioModelos getInstance() {
 		if (instance == null) {
 			instance = new RepositorioModelos();
 		}
 		return instance;
 	}
-	
+
 	private RepositorioModelos() {
 		this.create(new ModeloCelular("NOKIA 1100", 150));
 		this.create(new ModeloCelular("Motorola M90", 350));
 		this.create(new ModeloCelular("Ericsson 55", 440));
 	}
 
-	@Override
-	protected Predicate<ModeloCelular> getCriterio(ModeloCelular example) {
-		// TODO: Cambiar para la búsqueda
-		return this.getCriterioTodas();
+	public void create(ModeloCelular modelo) {
+		this.data.add(modelo);
 	}
 
-	@Override
-	public ModeloCelular createExample() {
-		return new ModeloCelular("", 0);
+	public ModeloCelular get(String descripcion) {
+		for (ModeloCelular modelo : this.data) {
+			if (modelo.getDescripcion().equals(descripcion)) {
+				return modelo;
+			}
+		}
+
+		throw new UserException("No se encontró el modelo de celular: " + descripcion);
 	}
 
-	@Override
-	public Class<ModeloCelular> getEntityType() {
-		return ModeloCelular.class;
+	public List<ModeloCelular> getModelos() {
+		return this.data;
 	}
-	
 }

@@ -1,45 +1,70 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
-import org.uqbar.commons.model.Home;
-import org.uqbar.commons.model.SearchByExample;
-import org.uqbar.commons.utils.TransactionalAndObservable;
+import java.util.List;
+
+import org.uqbar.commons.utils.Observable;
+import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioCelulares;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 
 @SuppressWarnings("serial")
-@TransactionalAndObservable
-public class BuscadorCelular extends SearchByExample<Celular> {
+@Observable
+public class BuscadorCelular {
+	private Integer numero;
+	private String nombre;
+	private List<Celular> resultados;
+	private Celular celularSeleccionado;
 
-	public BuscadorCelular(Home<Celular> home) {
-		super(home);
+	// ********************************************************
+	// ** Acciones
+	// ********************************************************
+
+	public void search() {
+		this.resultados = RepositorioCelulares.getInstance().search(this.numero, this.nombre);
 	}
 
-	public void setNombre(String nombre) {
-		this.getExample().setNombre(nombre);
+	public void clear() {
+		this.nombre = "";
+		this.numero = null;
+	}
+
+	public void eliminarCelularSeleccionado() {
+		RepositorioCelulares.getInstance().delete(this.getCelularSeleccionado());
+		this.search();
+	}
+
+	// ********************************************************
+	// ** Accessors
+	// ********************************************************
+
+	public Integer getNumero() {
+		return numero;
 	}
 
 	public void setNumero(Integer numero) {
-		this.getExample().setNumero(numero);
+		this.numero = numero;
 	}
 
-	/** 
-	 * Getters necesarios para que funcione el ejemplo de wicket
-	 */
 	public String getNombre() {
-		return this.getExample().getNombre();
+		return nombre;
 	}
 
-	public Integer getNumero() {
-		return this.getExample().getNumero();
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	/**
-	 * Fin getters necesarios
-	 */
-	
-	@Override
-	public void clear() {
-		this.setNombre("");
-		this.setNumero(null);
+	public Celular getCelularSeleccionado() {
+		return celularSeleccionado;
 	}
-	
+
+	public void setCelularSeleccionado(Celular celularSeleccionado) {
+		this.celularSeleccionado = celularSeleccionado;
+	}
+
+	public List<Celular> getResultados() {
+		return resultados;
+	}
+
+	public void setResultados(List<Celular> resultados) {
+		this.resultados = resultados;
+	}
 }

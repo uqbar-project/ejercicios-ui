@@ -1,68 +1,17 @@
 package org.uqbar.edu.paiu.examples.celulares.dao;
 
 import java.io.Serializable;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.commons.collections15.Predicate;
-import org.apache.commons.collections15.functors.AndPredicate;
-import org.uqbar.commons.model.CollectionBasedHome;
 import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 
-public class RepositorioCelulares extends CollectionBasedHome<Celular> implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Observable
+public class RepositorioCelulares implements Serializable {
 	private static RepositorioCelulares instance;
-
-	@Override
-	protected Predicate<Celular> getCriterio(Celular example) {
-		Predicate<Celular> resultPredicate = this.getCriterioTodas();
-		if (example.ingresoNombre()) {
-			resultPredicate = new AndPredicate<Celular>(resultPredicate, this.getCriterioPorNombre(example));
-		}
-		if (example.ingresoNumero()) {
-			resultPredicate = new AndPredicate<Celular>(resultPredicate, this.getCriterioPorNumero(example));
-		}
-		return resultPredicate;
-	}
-
-	protected Predicate<Celular> getCriterioPorNombre(final Celular celularBuscado) {
-		return new Predicate<Celular>() {
-			@Override
-			public boolean evaluate(Celular unCelular) {
-				return unCelular.getNombre().toLowerCase().contains(celularBuscado.getNombre().toLowerCase());
-			}
-		};
-	}
-
-	protected Predicate<Celular> getCriterioPorNumero(final Celular celularBuscado) {
-		return new Predicate<Celular>() {
-			@Override
-			public boolean evaluate(Celular unCelular) {
-				return unCelular.getNumero() == null || unCelular.getNumero().equals(celularBuscado.getNumero());
-			}
-		};
-	}
-	
-	@Override
-	public Celular createExample() {
-		return new Celular();
-	}
-
-	@Override
-	public Class<Celular> getEntityType() {
-		return Celular.class;
-	}
-
-	private RepositorioCelulares() {
-		super();
-		this.create(new Celular("Natalia", new Integer(1588022202), RepositorioModelos.getInstance().allInstances().iterator().next(), false));
-		Celular celuDiana = new Celular("Bernardo", new Integer(1566378124), RepositorioModelos.getInstance().allInstances().iterator().next(), true);
-		this.create(celuDiana);
-	}
+	private List<Celular> data = new ArrayList<Celular>();
 
 	public static RepositorioCelulares getInstance() {
 		if (instance == null) {
@@ -71,27 +20,60 @@ public class RepositorioCelulares extends CollectionBasedHome<Celular> implement
 		return instance;
 	}
 
-	@Override
-	public void validateCreate(Celular celular) {
-		super.validateCreate(celular);
-		this.validarClientesDuplicados(celular);
+	private RepositorioCelulares() {
+		this.create(new Celular("Natalia", 1588022202, RepositorioModelos.getInstance().get("NOKIA 1100"), false));
+		this.create(new Celular("Bernardo", 1566378124, RepositorioModelos.getInstance().get("Motorola M90"), true));
 	}
 
-	private void validarClientesDuplicados(Celular celular) {
-		Iterator<Celular> it = this.searchByExample(new Celular(null, celular.getNumero())).iterator();
-		while (it.hasNext()) {
-			Celular otro = it.next();
-			if (!otro.getId().equals(celular.getId())) {
-				throw new UserException("El cliente " + otro.getNombre() + " tiene el mismo número");
-			}
-		}
-	}
-	
-	@Override
-	public void update(Celular celular) {
+	// ********************************************************
+	// ** Altas y bajas
+	// ********************************************************
+
+	public void create(Celular celular) {
 		celular.validar();
 		this.validarClientesDuplicados(celular);
-		super.update(celular);
+		this.data.add(celular);
 	}
 
+	public void delete(Celular celular) {
+		this.data.remove(celular);
+	}
+
+	protected void validarClientesDuplicados(Celular celular) {
+		if (!this.search(celular.getNumero()).isEmpty()) {
+			throw new UserException("Ya existe un celular con el número: " + celular.getNumero());
+		}
+	}
+
+	// ********************************************************
+	// ** Búsquedas
+	// ********************************************************
+
+	public List<Celular> search(Integer numero) {
+		return this.search(numero, null);
+	}
+
+	/**
+	 * Busca los celulares que coincidan con los datos recibidos. Tanto número como nombre pueden ser nulos,
+	 * en ese caso no se filtra por ese atributo.
+	 * 
+	 * Soporta búsquedas por substring, por ejemplo el celular (12345, "Juan Gonzalez") será contemplado por
+	 * la búsqueda (23, "Gonza")
+	 */
+	public List<Celular> search(Integer numero, String nombre) {
+		List<Celular> resultados = new ArrayList<Celular>();
+
+		for (Celular celular : this.data) {
+			if (match(numero, celular.getNumero()) && match(nombre, celular.getNombre())) {
+				resultados.add(celular);
+			}
+		}
+
+		return resultados;
+	}
+
+	protected boolean match(Object expectedValue, Object realValue) {
+		return expectedValue == null
+			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
+	}
 }
