@@ -8,12 +8,16 @@ import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 
+/**
+ * 
+ * @author npasserini
+ */
 @Observable
 public class RepositorioCelulares implements Serializable {
 	private static RepositorioCelulares instance;
 	private List<Celular> data = new ArrayList<Celular>();
 
-	public static RepositorioCelulares getInstance() {
+	public static synchronized RepositorioCelulares getInstance() {
 		if (instance == null) {
 			instance = new RepositorioCelulares();
 		}
@@ -23,6 +27,7 @@ public class RepositorioCelulares implements Serializable {
 	private RepositorioCelulares() {
 		this.create(new Celular("Natalia", 1588022202, RepositorioModelos.getInstance().get("NOKIA 1100"), false));
 		this.create(new Celular("Bernardo", 1566378124, RepositorioModelos.getInstance().get("Motorola M90"), true));
+		this.create(new Celular("Adalberto", 1569575222, RepositorioModelos.getInstance().get("Samsung Galaxy SII"), true));
 	}
 
 	// ********************************************************

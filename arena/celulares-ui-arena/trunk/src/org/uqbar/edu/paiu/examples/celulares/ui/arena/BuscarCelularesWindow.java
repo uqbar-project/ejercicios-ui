@@ -15,16 +15,19 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Search;
-import org.uqbar.commons.model.SearchByExample;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 
 import com.uqbar.commons.collections.Transformer;
 
+/**
+ * Ventana de búsqueda de celulares.
+ * 
+ * @see BuscadorCelular el modelo subyacente.
+ * 
+ * @author ?
+ */
 public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 
-	/**************************************************************************
-	 * CONSTRUCCION DE LA VISTA ************************************************************************
-	 */
 	public BuscarCelularesWindow(WindowOwner parent) {
 		super(parent, new BuscadorCelular());
 		this.getModelObject().search();
@@ -45,9 +48,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		this.createGridActions(mainPanel);
 	}
 
-	/**************************************************************************
-	 * FORMULARIO DE BUSQUEDA ************************************************************************
-	 */
+// *************************************************************************
+// * FORMULARIO DE BUSQUEDA 
+// *************************************************************************
+	
 	/**
 	 * El panel principal de búsuqeda permite filtrar por número o nombre
 	 */
@@ -84,9 +88,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		new Button(actionsPanel).setCaption("Nuevo Celular").onClick(new MessageSend(this, "crearCelular"));
 	}
 
-	/**************************************************************************
-	 * RESULTADOS DE LA BUSQUEDA ************************************************************************
-	 */
+// *************************************************************************
+// **  RESULTADOS DE LA BUSQUEDA 
+// *************************************************************************
+	
 	/**
 	 * Se crea la grilla en el panel de abajo El binding es: el contenido de la grilla en base a los
 	 * resultados de la búsqueda Cuando el usuario presiona Buscar, se actualiza el model, y éste a su vez

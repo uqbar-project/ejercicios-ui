@@ -6,6 +6,22 @@ import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioCelulares;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 
+/**
+ * Application model que representa la búsqueda de {@link Celular}.
+ * Contiene:
+ * <ul>
+ * 	<li>El estado de los atributos por los cuales buscar: numero y nombre</li>
+ *  <li>El comportamiento para realizar la búsqueda (en realidad delega en otros objetos)</li>
+ *  <li>El estado del resultado de la búsqueda, es decir que recuerda la lista de Celulares resultado</li>
+ *  <li>El estado de la selección de un Celular para poder utilizar el comportamiento que sigue...</li>
+ *  <li>Comportamiento para eliminar un Celular seleccionado.</li>
+ * </ul> 
+ * 
+ * Este es un objeto transiente, que contiene estado de la ejecución para un usuario en particular
+ * en una ejecución de la aplicación en particular.
+ * 
+ * @author npasserini
+ */
 @SuppressWarnings("serial")
 @Observable
 public class BuscadorCelular {
@@ -37,7 +53,7 @@ public class BuscadorCelular {
 	// ********************************************************
 
 	public Integer getNumero() {
-		return numero;
+		return this.numero;
 	}
 
 	public void setNumero(Integer numero) {
@@ -45,7 +61,7 @@ public class BuscadorCelular {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -53,7 +69,7 @@ public class BuscadorCelular {
 	}
 
 	public Celular getCelularSeleccionado() {
-		return celularSeleccionado;
+		return this.celularSeleccionado;
 	}
 
 	public void setCelularSeleccionado(Celular celularSeleccionado) {
@@ -61,7 +77,7 @@ public class BuscadorCelular {
 	}
 
 	public List<Celular> getResultados() {
-		return resultados;
+		return this.resultados;
 	}
 
 	public void setResultados(List<Celular> resultados) {
