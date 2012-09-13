@@ -4,6 +4,7 @@ import org.apache.commons.collections15.Predicate;
 import org.uqbar.commons.model.CollectionBasedHome;
 
 import tadp.blocbaster.entidades.Socio;
+import tadp.blocbaster.entidades.Socio.Estado;
 
 /**
  * @author npasserini
@@ -18,7 +19,9 @@ public class SocioDaoColeccionImpl extends CollectionBasedHome<Socio> {
 		this.create(new Socio("Fernando Dodino", "Nazca 333", "fer", "fer"));
 		this.create(new Socio("Nicolas Passerini", "Urquiza 444", "nico", "nico"));
 		this.create(new Socio("Debora Fortini", "Medrano 555", "deby", "deby"));
-		this.create(new Socio("Sergio Magnacco", "urquiza 553", "ser", "ser"));
+		Socio sergio = new Socio("Sergio Magnacco", "urquiza 553", "ser", "ser");
+		sergio.setEstado(Estado.INACTIVO);
+		this.create(sergio);
 	}
 
 	@Override
@@ -40,6 +43,7 @@ public class SocioDaoColeccionImpl extends CollectionBasedHome<Socio> {
 		String nombre = clienteBuscado.getNombre();
 		String direccion = clienteBuscado.getDireccion();
 		Integer id = clienteBuscado.getId();
+		Estado estado = clienteBuscado.getEstado();		
 
 		if (id != null) {
 			return this.getCriterioPorId(id);
@@ -60,8 +64,22 @@ public class SocioDaoColeccionImpl extends CollectionBasedHome<Socio> {
 		if (direccion != null) {
 			return this.getCriterioClientePorDireccion(clienteBuscado);
 		}
+		
+		if (estado != null) {
+			return this.getCriterioClientePorEstado(clienteBuscado);
+		}
 
 		return this.getCriterioTodas();
+	}
+
+	private Predicate getCriterioClientePorEstado(final Socio clienteBuscado) {
+		return new Predicate() {
+			@Override
+			public boolean evaluate(Object arg) {
+				Socio unCliente = (Socio) arg;
+				return unCliente.getEstado() == null || unCliente.getEstado().equals(clienteBuscado.getEstado());
+			}
+		};
 	}
 
 	protected org.apache.commons.collections15.Predicate getCriterioClientePorDireccion(final Socio clienteBuscado) {

@@ -43,6 +43,7 @@ public class Socio extends Entity {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.fecha = new Date();
+		this.estado = Estado.ACTIVO;
 	}
 
 	public Socio(Integer idCliente) {
