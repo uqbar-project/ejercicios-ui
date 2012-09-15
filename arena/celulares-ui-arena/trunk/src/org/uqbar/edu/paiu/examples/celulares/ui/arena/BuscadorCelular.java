@@ -22,7 +22,6 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
  * 
  * @author npasserini
  */
-@SuppressWarnings("serial")
 @Observable
 public class BuscadorCelular {
 	private Integer numero;

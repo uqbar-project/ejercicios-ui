@@ -5,6 +5,7 @@ import java.awt.Color;
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.bindings.NotNullObservable;
 import org.uqbar.arena.layout.ColumnLayout;
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -14,10 +15,7 @@ import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.commons.model.Search;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
-
-import com.uqbar.commons.collections.Transformer;
 
 /**
  * Ventana de búsqueda de celulares.
@@ -44,8 +42,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		this.setTaskDescription("Ingrese los parámetros de búsqueda");
 
 		super.createMainTemplate(mainPanel);
+
 		this.createResultsGrid(mainPanel);
 		this.createGridActions(mainPanel);
+
 	}
 
 // *************************************************************************
@@ -80,12 +80,17 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	protected void addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
 			.setCaption("Buscar")
-			.onClick(new MessageSend(this.getModelObject(), Search.SEARCH))
-			.setAsDefault();
+			.onClick(new MessageSend(this.getModelObject(), "search"))
+			.setAsDefault()
+			.disableOnError();
 
-		new Button(actionsPanel).setCaption("Limpiar").onClick(new MessageSend(this.getModelObject(), "clear"));
+		new Button(actionsPanel) //
+			.setCaption("Limpiar")
+			.onClick(new MessageSend(this.getModelObject(), "clear"));
 
-		new Button(actionsPanel).setCaption("Nuevo Celular").onClick(new MessageSend(this, "crearCelular"));
+		new Button(actionsPanel)//
+			.setCaption("Nuevo Celular")
+			.onClick(new MessageSend(this, "crearCelular"));
 	}
 
 // *************************************************************************
@@ -99,6 +104,8 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	 */
 	protected void createResultsGrid(Panel mainPanel) {
 		Table<Celular> table = new Table<Celular>(mainPanel, Celular.class);
+		table.setHeigth(200);
+		table.setWidth(450);
 
 		table.bindItemsToProperty("resultados");
 		table.bindValueToProperty("celularSeleccionado");
@@ -114,10 +121,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	 * @param table
 	 */
 	protected void describeResultsGrid(Table<Celular> table) {
-		Column<Celular> nombreColumn = new Column<Celular>(table);
-		nombreColumn.setTitle("Nombre");
-		nombreColumn.setFixedSize(150);
-		nombreColumn.bindContentsToProperty("nombre");
+		new Column<Celular>(table) //
+			.setTitle("Nombre")
+			.setFixedSize(150)
+			.bindContentsToProperty("nombre");
 
 		Column<Celular> numeroColumn = new Column<Celular>(table);
 		numeroColumn.setTitle("Número");
@@ -132,17 +139,12 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		Column<Celular> ingresoColumn = new Column<Celular>(table);
 		ingresoColumn.setTitle("Recibe resumen de cuenta");
 		ingresoColumn.setFixedSize(50);
-		ingresoColumn.bindContentsToTransformer(new Transformer<Celular, String>() {
-			@Override
-			public String transform(Celular celular) {
-				return celular.getRecibeResumenCuenta() ? "SI" : "NO";
-			}
-		});
+		ingresoColumn.bindContentsToTransformer(new BooleanToSiNoTransformer());
 	}
 
 	protected void createGridActions(Panel mainPanel) {
 		Panel actionsPanel = new Panel(mainPanel);
-		actionsPanel.setHorizontalLayout();
+		actionsPanel.setLayout(new HorizontalLayout());
 
 		Button edit = new Button(actionsPanel);
 		edit.setCaption("Editar");
@@ -150,7 +152,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 
 		Button remove = new Button(actionsPanel);
 		remove.setCaption("Borrar");
-		remove.onClick(new MessageSend(this.getModelObject(), "removeSelected"));
+		remove.onClick(new MessageSend(this.getModelObject(), "eliminarCelularSeleccionado"));
 
 		// Deshabilitar los botones si no hay ningún elemento seleccionado en la grilla.
 		NotNullObservable elementSelected = new NotNullObservable("celularSeleccionado");
@@ -167,7 +169,9 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	}
 
 	public void modificarCelular() {
-		this.openDialog(new EditarCelularWindow(this, this.getModelObject().getCelularSeleccionado()));
+		this.openDialog(
+			new EditarCelularWindow(
+				this, this.getModelObject().getCelularSeleccionado()));
 	}
 
 	protected void openDialog(Dialog<?> dialog) {

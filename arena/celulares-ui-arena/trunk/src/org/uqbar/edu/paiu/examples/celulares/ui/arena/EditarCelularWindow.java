@@ -15,6 +15,8 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioModelos;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
+import org.uqbar.lacar.ui.model.ListBuilder;
+import org.uqbar.lacar.ui.model.bindings.Binding;
 
 public class EditarCelularWindow extends TransactionalDialog<Celular> {
 
@@ -34,11 +36,14 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		new TextBox(form).bindValueToProperty("nombre");
 
 		new Label(form).setText("Modelo del aparato");
-		Selector<ModeloCelular> selector = new Selector<ModeloCelular>(form).allowNull(false);
-		selector //
-			.bindItems(new ObservableProperty(RepositorioModelos.getInstance(), "modelos"))
-			.setAdapter(new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
+		Selector<ModeloCelular> selector = new Selector<ModeloCelular>(form) //
+			.allowNull(false);
 		selector.bindValueToProperty("modeloCelular");
+
+		Binding<ListBuilder<ModeloCelular>> itemsBinding = selector.bindItems( //
+			new ObservableProperty(RepositorioModelos.getInstance(), "modelos"));
+		itemsBinding.setAdapter( //
+			new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
 
 		new Label(form).setText("Recibe resumen cuenta en domicilio");
 		new CheckBox(form).bindValueToProperty("recibeResumenCuenta");
