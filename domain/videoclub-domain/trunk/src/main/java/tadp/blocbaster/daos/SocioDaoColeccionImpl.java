@@ -53,46 +53,46 @@ public class SocioDaoColeccionImpl extends CollectionBasedHome<Socio> {
 		}
 		
 		if (nombre != null) {
-			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioClientePorNombre(socioBuscado));
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioSocioPorNombre(socioBuscado));
 		}
 
 		if (direccion != null) {
-			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioClientePorDireccion(socioBuscado));
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioSocioPorDireccion(socioBuscado));
 		}
 		
 		if (estado != null) {
-			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioClientePorEstado(socioBuscado));
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioSocioPorEstado(socioBuscado));
 		}
 
 		return resultPredicate;
 	}
 
-	protected Predicate<Socio> getCriterioClientePorDireccion(final Socio clienteBuscado) {
+	protected Predicate<Socio> getCriterioSocioPorDireccion(final Socio socioBuscado) {
 		return new Predicate() {
 			@Override
 			public boolean evaluate(Object arg) {
 				Socio unSocio = (Socio) arg;
-				return unSocio.getDireccion().toLowerCase().contains(clienteBuscado.getDireccion().toLowerCase());
+				return unSocio.getDireccion().toLowerCase().contains(socioBuscado.getDireccion().toLowerCase());
 			}
 		};
 	}
 
-	protected Predicate<Socio> getCriterioClientePorNombre(final Socio clienteBuscado) {
+	protected Predicate<Socio> getCriterioSocioPorNombre(final Socio socioBuscado) {
 		return new Predicate() {
 			@Override
 			public boolean evaluate(Object arg) {
 				Socio unSocio = (Socio) arg;
-				return unSocio.getNombre().toLowerCase().contains(clienteBuscado.getNombre().toLowerCase());
+				return unSocio.getNombre().toLowerCase().contains(socioBuscado.getNombre().toLowerCase());
 			}
 		};
 	}
 	
-	private Predicate<Socio> getCriterioClientePorEstado(final Socio clienteBuscado) {
+	private Predicate<Socio> getCriterioSocioPorEstado(final Socio socioBuscado) {
 		return new Predicate() {
 			@Override
 			public boolean evaluate(Object arg) {
 				Socio unSocio = (Socio) arg;
-				return unSocio.getEstado() == null || unSocio.getEstado().equals(clienteBuscado.getEstado());
+				return unSocio.getEstado() == null || unSocio.getEstado().equals(socioBuscado.getEstado());
 			}
 		};
 	}
