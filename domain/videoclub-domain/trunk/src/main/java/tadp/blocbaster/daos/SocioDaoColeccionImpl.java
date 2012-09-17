@@ -1,6 +1,7 @@
 package tadp.blocbaster.daos;
 
 import org.apache.commons.collections15.Predicate;
+import org.apache.commons.collections15.functors.AndPredicate;
 import org.uqbar.commons.model.CollectionBasedHome;
 
 import tadp.blocbaster.entidades.Socio;
@@ -39,78 +40,62 @@ public class SocioDaoColeccionImpl extends CollectionBasedHome<Socio> {
 	// ********************************************************
 
 	@Override
-	public org.apache.commons.collections15.Predicate getCriterio(final Socio clienteBuscado) {
-		String nombre = clienteBuscado.getNombre();
-		String direccion = clienteBuscado.getDireccion();
-		Integer id = clienteBuscado.getId();
-		Estado estado = clienteBuscado.getEstado();		
-
+	public Predicate<Socio> getCriterio(final Socio socioBuscado) {
+		Predicate<Socio> resultPredicate = this.getCriterioTodas();
+		
+		String nombre = socioBuscado.getNombre();
+		String direccion = socioBuscado.getDireccion();
+		Integer id = socioBuscado.getId();
+		Estado estado = socioBuscado.getEstado();
+		
 		if (id != null) {
-			return this.getCriterioPorId(id);
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioPorId(id));
 		}
-
-		if (nombre != null && direccion != null) {
-			if (nombre.equals("") && direccion.equals("")) {
-				return this.getCriterioTodas();
-			} else {
-				return this.getCriterioClientePorNombreYDireccion(clienteBuscado);
-			}
-		}
-
+		
 		if (nombre != null) {
-			return this.getCriterioClientePorNombre(clienteBuscado);
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioClientePorNombre(socioBuscado));
 		}
 
 		if (direccion != null) {
-			return this.getCriterioClientePorDireccion(clienteBuscado);
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioClientePorDireccion(socioBuscado));
 		}
 		
 		if (estado != null) {
-			return this.getCriterioClientePorEstado(clienteBuscado);
+			resultPredicate = new AndPredicate<Socio>(resultPredicate, this.getCriterioClientePorEstado(socioBuscado));
 		}
 
-		return this.getCriterioTodas();
+		return resultPredicate;
 	}
 
-	private Predicate getCriterioClientePorEstado(final Socio clienteBuscado) {
+	protected Predicate<Socio> getCriterioClientePorDireccion(final Socio clienteBuscado) {
 		return new Predicate() {
 			@Override
 			public boolean evaluate(Object arg) {
-				Socio unCliente = (Socio) arg;
-				return unCliente.getEstado() == null || unCliente.getEstado().equals(clienteBuscado.getEstado());
+				Socio unSocio = (Socio) arg;
+				return unSocio.getDireccion().toLowerCase().contains(clienteBuscado.getDireccion().toLowerCase());
 			}
 		};
 	}
 
-	protected org.apache.commons.collections15.Predicate getCriterioClientePorDireccion(final Socio clienteBuscado) {
+	protected Predicate<Socio> getCriterioClientePorNombre(final Socio clienteBuscado) {
 		return new Predicate() {
 			@Override
 			public boolean evaluate(Object arg) {
-				Socio unCliente = (Socio) arg;
-				return unCliente.getDireccion().toLowerCase().contains(clienteBuscado.getDireccion().toLowerCase());
+				Socio unSocio = (Socio) arg;
+				return unSocio.getNombre().toLowerCase().contains(clienteBuscado.getNombre().toLowerCase());
 			}
 		};
 	}
-
-	protected org.apache.commons.collections15.Predicate getCriterioClientePorNombreYDireccion(
-			final Socio clienteBuscado) {
+	
+	private Predicate<Socio> getCriterioClientePorEstado(final Socio clienteBuscado) {
 		return new Predicate() {
 			@Override
 			public boolean evaluate(Object arg) {
-				Socio unCliente = (Socio) arg;
-				return unCliente.getNombre().toLowerCase().contains(clienteBuscado.getNombre().toLowerCase())
-						&& unCliente.getDireccion().toLowerCase().contains(clienteBuscado.getDireccion().toLowerCase());
+				Socio unSocio = (Socio) arg;
+				return unSocio.getEstado() == null || unSocio.getEstado().equals(clienteBuscado.getEstado());
 			}
 		};
 	}
-
-	protected Predicate getCriterioClientePorNombre(final Socio clienteBuscado) {
-		return new Predicate() {
-			@Override
-			public boolean evaluate(Object arg) {
-				Socio unCliente = (Socio) arg;
-				return unCliente.getNombre().toLowerCase().contains(clienteBuscado.getNombre().toLowerCase());
-			}
-		};
-	}
+	
 }
+
