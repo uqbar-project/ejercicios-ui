@@ -23,7 +23,7 @@ public class RepositorioModelos implements Serializable {
 	private RepositorioModelos() {
 		this.create(new ModeloCelular("NOKIA 1100", 150));
 		this.create(new ModeloCelular("Motorola M90", 350));
-		this.create(new ModeloCelular("Ericsson 55", 440));
+		this.create(new ModeloCelular("Samsung Galaxy SII", 440));
 	}
 
 	public void create(ModeloCelular modelo) {
