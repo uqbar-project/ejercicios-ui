@@ -2,9 +2,11 @@ package org.uqbar.edu.paiu.examples.celulares.domain;
 
 import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.UserException;
-import org.uqbar.commons.utils.TransactionalAndObservable;
+import org.uqbar.commons.utils.Observable;
+import org.uqbar.commons.utils.Transactional;
 
-@TransactionalAndObservable
+@Transactional
+@Observable
 public class Celular extends Entity {
 	public final int MAX_NUMERO = 1000;
 
