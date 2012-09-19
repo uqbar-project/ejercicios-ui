@@ -21,8 +21,8 @@ public class RepositorioModelos implements Serializable {
 	}
 
 	private RepositorioModelos() {
-		this.create(new ModeloCelular("NOKIA 1100", 150));
-		this.create(new ModeloCelular("Motorola M90", 350));
+		this.create(new ModeloCelular("NOKIA 1100", 150, true));
+		this.create(new ModeloCelular("Motorola M90", 350, true));
 		this.create(new ModeloCelular("Samsung Galaxy SII", 440));
 	}
 

@@ -1,6 +1,7 @@
 package org.uqbar.edu.paiu.examples.celulares.domain;
 
 import org.uqbar.commons.model.Entity;
+import org.uqbar.commons.model.ObservableUtils;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.commons.utils.Transactional;
@@ -89,16 +90,22 @@ public class Celular extends Entity {
 
 	public void setModeloCelular(ModeloCelular modeloCelular) {
 		this.modeloCelular = modeloCelular;
+		this.setRecibeResumenCuenta(modeloCelular.getRequiereResumenCuenta());
 	}
 
 	public void setRecibeResumenCuenta(Boolean recibeResumenCuenta) {
 		this.recibeResumenCuenta = recibeResumenCuenta;
+		ObservableUtils.forceFirePropertyChanged(this, "habilitaResumenCuenta", !this.getHabilitaResumenCuenta());
 	}
 
 	public Boolean getRecibeResumenCuenta() {
 		return this.recibeResumenCuenta;
 	}
 
+	public Boolean getHabilitaResumenCuenta() {
+		return !this.modeloCelular.getRequiereResumenCuenta();
+	}
+	
 	// ********************************************************
 	// ** Misceláneos
 	// ********************************************************

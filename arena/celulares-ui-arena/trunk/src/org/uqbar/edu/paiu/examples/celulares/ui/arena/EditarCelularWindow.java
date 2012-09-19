@@ -12,6 +12,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.ObservableUtils;
 import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioModelos;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
@@ -46,8 +47,9 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 			new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
 
 		new Label(form).setText("Recibe resumen cuenta en domicilio");
-		new CheckBox(form).bindValueToProperty("recibeResumenCuenta");
-
+		CheckBox chkRecibeResumenCuenta = new CheckBox(form);
+		chkRecibeResumenCuenta.bindValueToProperty("recibeResumenCuenta");
+		chkRecibeResumenCuenta.bindEnabledToProperty("habilitaResumenCuenta");
 	}
 
 	@Override
