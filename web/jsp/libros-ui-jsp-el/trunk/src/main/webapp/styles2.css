@@ -1,0 +1,51 @@
+body {
+/*	background-color: ; */
+	font-family: sans-serif;
+	font-variant: small-caps;
+}
+
+h1 {
+/*	color: blue; */
+	text-align: center;
+}
+
+p {
+	font-family: sans-serif;
+	font-size: 20px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid lightGrey;
+}
+
+th {
+	text-transform: uppercase;
+	border-bottom: 2px solid grey;
+}
+
+tr:HOVER {
+	background-color: #E5E5E5;
+}
+
+td:FIRST-CHILD {
+	font-size: smaller;
+	color: grey;
+}
+
+td, th {
+	padding: 5px;
+}
+
+.searchBox:FOCUS {
+	background-color: white;
+	color: black;
+}
+
+.searchBox {
+	background-color: #E5E5E5;
+	color: grey;
+}
