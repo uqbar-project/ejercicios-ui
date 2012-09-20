@@ -54,7 +54,12 @@ public class CelularServlet extends HttpServlet {
 			String parameterIdModelo = request.getParameter("idModelo");
 			if (parameterIdModelo != null && !parameterIdModelo.equals("")) {
 				int idModelo = new Integer(parameterIdModelo).intValue();
-				modelo = RepositorioModelos.getInstance().searchById(idModelo);
+				// TODO: Buscar por Id
+				for (ModeloCelular modeloIt : RepositorioModelos.getInstance().getModelos()) {
+					if (modeloIt.getId().equals(idModelo)) {
+						modelo = modeloIt;
+					}
+				}
 			}
 			Celular celular = new Celular(nombre, numero, modelo, false);
 			celular.validar();

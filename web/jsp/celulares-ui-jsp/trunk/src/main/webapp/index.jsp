@@ -153,7 +153,7 @@ function procesarValidaciones() {
 	//objeto.equals("");
 	
 	request.setAttribute("paginaOrigen", request.getRequestURI());
-	request.setAttribute("modelos", RepositorioModelos.getInstance().allInstances());
+	request.setAttribute("modelos", RepositorioModelos.getInstance().getModelos());
 	
 	String idModelo = request.getParameter("idModelo");
 %>
