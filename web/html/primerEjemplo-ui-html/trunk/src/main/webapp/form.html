@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" />
+		<title>Ejemplo de formulario</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+	</head>
+
+	<body>
+		<h2>Formulario de carga de un alumno</h2>
+		<form method="get" action="ready.html">
+			<p>Nombre:<br/><input type="text" id="nombre" name="nombre" alt="Ingrese el nombre completo"></input></p>
+			<p>Comentarios:<br/><textarea id="comentarios" name="comentarios" rows="2" cols="30"></textarea></p>
+			<p>Materia preferida:<br />
+				<input name="cbMateriaPref" type="radio" value="algo2"/>Algoritmos 2<br/>
+				<input name="cbMateriaPref" type="radio" value="algo3" checked="true"/>Algoritmos 3<br/>
+				<input name="cbMateriaPref" type="radio" value="pdp"/>Paradigmas de Programación<br/>
+			</p>
+			<p>Materias que te gustaron:<br/>
+				<input name="cbMateria" type="checkbox" value="algo2"/>Algoritmos 2<br />
+				<input name="cbMateria" type="checkbox" value="algo3"/>Algoritmos 3<br />
+				<input name="cbMateria" type="checkbox" value="pdp"/>Paradigmas de Programación<br/>
+			</p>
+			<p>Tipo de alumno:
+				<select name="tipoAlumno">
+					<option>Estudioso</option>
+					<option>Canchero</option>
+					<option>Vagoneta</option>
+				</select>
+			</p>
+			<input type="hidden" id="oculto" name="oculto" value="si"></input>
+			<input type="submit"></input>
+		</form>
+	</body>
+</html>
