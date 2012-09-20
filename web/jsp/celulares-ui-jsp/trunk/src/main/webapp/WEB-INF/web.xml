@@ -1,0 +1,19 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Ejemplo de formulario web con validaciones en cliente y servidor</display-name>
+	<servlet>
+		<servlet-name>CelularServlet</servlet-name>
+		<servlet-class>ar.edu.paiu.examples.celulares.controller.CelularServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CelularServlet</servlet-name>
+		<url-pattern>/validar</url-pattern>
+	</servlet-mapping>
+	<taglib>
+		<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+		<taglib-location>c.tld</taglib-location>
+	</taglib>
+</web-app>
