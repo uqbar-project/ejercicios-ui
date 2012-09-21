@@ -1,28 +1,37 @@
 package model.domain;
 
 public class Producto extends Persistible {
-	
+
 	private String nombre;
 	private float costo;
 	private float precio;
-	
+
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public float getCosto() {
-		return costo;
+		return this.costo;
 	}
+
 	public void setCosto(float costo) {
 		this.costo = costo;
 	}
+
 	public float getPrecio() {
-		return precio;
+		return this.precio;
 	}
+
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
-	
+
+	public float ganancia() {
+		return this.getPrecio() - this.getCosto();
+	}
+
 }

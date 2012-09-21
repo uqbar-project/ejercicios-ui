@@ -15,7 +15,7 @@ public class StockTableModel extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
-		return 4;
+		return 5;
 	}
 
 	@Override
@@ -34,6 +34,8 @@ public class StockTableModel extends AbstractTableModel {
 			return "Costo";
 		case 3:
 			return "Precio";
+		case 4:
+			return "Ganancia";
 		}
 		throw new RuntimeException("no existe la columna " + column
 				+ " en stock");
@@ -51,6 +53,8 @@ public class StockTableModel extends AbstractTableModel {
 			return item.getProducto().getCosto();
 		case 3:
 			return item.getProducto().getPrecio();
+		case 4:
+			return item.getProducto().ganancia();
 		}
 		throw new RuntimeException("no existe la columna " + columnIndex
 				+ " en stock");
