@@ -1,4 +1,4 @@
-package uqbar.calculadora.controllers;
+package uqbar.calculadora.controller;
 
 import java.io.IOException;
 

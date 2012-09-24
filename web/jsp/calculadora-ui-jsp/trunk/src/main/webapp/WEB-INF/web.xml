@@ -6,7 +6,7 @@
 	<display-name>Archetype Created Web Application</display-name>
 	<servlet>
 		<servlet-name>calcular</servlet-name>
-		<servlet-class>uqbar.calculadora.controllers.CalcularServlet</servlet-class>
+		<servlet-class>uqbar.calculadora.controller.CalcularServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>calcular</servlet-name>
