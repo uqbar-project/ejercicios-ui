@@ -1,5 +1,6 @@
 package tadp.blocbaster.entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -140,7 +141,11 @@ public class Socio extends Entity {
 
 	@Override
 	public String toString() {
-		return this.nombre + " direccion: " + this.direccion + " fecha: " + this.fecha;
+		StringBuffer result = new StringBuffer(this.nombre + " direccion: " + this.direccion);
+		if (this.fecha != null) {
+			result.append(" fecha: " + new SimpleDateFormat("dd/MM/yyyy").format(this.fecha));
+		}
+		return result.toString();
 	}
 	
 	/**
