@@ -1,4 +1,4 @@
-package uqbar.videoclub.controllers;
+package uqbar.videoclub.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
