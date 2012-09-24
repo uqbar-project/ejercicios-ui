@@ -1,4 +1,4 @@
-package uqbar.busquedaLibros.domain;
+package uqbar.busquedaLibros.rest.domain;
 
 public class Libro {
 	private final String titulo;

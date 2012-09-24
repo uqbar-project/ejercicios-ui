@@ -1,4 +1,4 @@
-package uqbar.busquedaLibros.controllers;
+package uqbar.busquedaLibros.rest.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import uqbar.busquedaLibros.domain.Biblioteca;
-import uqbar.busquedaLibros.domain.Libro;
+import uqbar.busquedaLibros.rest.domain.Biblioteca;
+import uqbar.busquedaLibros.rest.domain.Libro;
 
 @SuppressWarnings("serial")
 public class DetalleServlet extends HttpServlet {
