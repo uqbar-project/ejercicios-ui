@@ -1,4 +1,4 @@
-package com.uqbar.edu.progui.examples.jsp;
+package uqbar.busquedaLibros.el.domain;
 
 import java.io.Serializable;
 
