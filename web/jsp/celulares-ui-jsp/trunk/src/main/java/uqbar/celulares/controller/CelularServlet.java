@@ -1,4 +1,4 @@
-package uqbar.celulares.controllers;
+package uqbar.celulares.controller;
 
 import java.io.IOException;
 

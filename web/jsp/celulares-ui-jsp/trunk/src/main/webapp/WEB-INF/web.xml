@@ -6,7 +6,7 @@
 	<display-name>Ejemplo de formulario web con validaciones en cliente y servidor</display-name>
 	<servlet>
 		<servlet-name>CelularServlet</servlet-name>
-		<servlet-class>uqbar.celulares.controllers.CelularServlet</servlet-class>
+		<servlet-class>uqbar.celulares.controller.CelularServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CelularServlet</servlet-name>
