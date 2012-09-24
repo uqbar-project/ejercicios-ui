@@ -1,4 +1,4 @@
-package uqbar.videoclub.servlets;
+package uqbar.videoclub.controllers;
 
 import java.io.IOException;
 import java.util.List;

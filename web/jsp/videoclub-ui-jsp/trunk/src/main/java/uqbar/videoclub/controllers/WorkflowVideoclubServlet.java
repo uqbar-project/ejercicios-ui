@@ -1,10 +1,13 @@
-package uqbar.videoclub.servlets;
+package uqbar.videoclub.controllers;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.uqbar.commons.model.UserException;
 
 import tadp.blocbaster.exceptions.BusinessException;
 
@@ -31,6 +34,8 @@ public abstract class WorkflowVideoclubServlet extends HttpServlet {
 		try {
 			this.executeTask(request, response);
 		} catch (BusinessException e) {
+			this.mostrarError(request, response, e.getMessage());
+		} catch (UserException e) {
 			this.mostrarError(request, response, e.getMessage());
 		}
 

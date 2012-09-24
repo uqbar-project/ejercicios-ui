@@ -15,50 +15,50 @@
 	<servlet>
 		<servlet-name>EliminarSocioServlet</servlet-name>
 		<servlet-class>
-			uqbar.videoclub.servlets.EliminarSocioServlet</servlet-class>
+			uqbar.videoclub.controllers.EliminarSocioServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>BuscarSocioServlet</servlet-name>
 		<servlet-class>
-			uqbar.videoclub.servlets.BuscarSocioServlet</servlet-class>
+			uqbar.videoclub.controllers.BuscarSocioServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ActualizarSocioServlet</servlet-name>
 		<servlet-class>
-			uqbar.videoclub.servlets.ActualizarSocioServlet</servlet-class>
+			uqbar.videoclub.controllers.ActualizarSocioServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AgregarPeliculaServlet</servlet-name>
 		<servlet-class>
-			uqbar.videoclub.servlets.AgregarPeliculaServlet</servlet-class>
+			uqbar.videoclub.controllers.AgregarPeliculaServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ActualizarMedioPagoServlet</servlet-name>
 		<servlet-class>
-			uqbar.videoclub.servlets.ConfirmarPedidoServlet</servlet-class>
+			uqbar.videoclub.controllers.ConfirmarPedidoServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>NuevoPedidoServlet</servlet-name>
-		<servlet-class>uqbar.videoclub.servlets.NuevoPedidoServlet</servlet-class>
+		<servlet-class>uqbar.videoclub.controllers.NuevoPedidoServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>NuevaBusquedaServlet</servlet-name>
-		<servlet-class>uqbar.videoclub.servlets.NuevaBusquedaServlet</servlet-class>
+		<servlet-class>uqbar.videoclub.controllers.NuevaBusquedaServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EdicionSocioServlet</servlet-name>
-		<servlet-class>uqbar.videoclub.servlets.EdicionSocioServlet</servlet-class>
+		<servlet-class>uqbar.videoclub.controllers.EdicionSocioServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>NuevoSocioServlet</servlet-name>
-		<servlet-class>uqbar.videoclub.servlets.NuevoSocioServlet</servlet-class>
+		<servlet-class>uqbar.videoclub.controllers.NuevoSocioServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>WorkflowSocioServlet</display-name>
 		<servlet-name>WorkflowSocioServlet</servlet-name>
-		<servlet-class>uqbar.videoclub.servlets.WorkflowVideoclubServlet</servlet-class>
+		<servlet-class>uqbar.videoclub.controllers.WorkflowVideoclubServlet</servlet-class>
 	</servlet>
 		
 	<servlet-mapping>
