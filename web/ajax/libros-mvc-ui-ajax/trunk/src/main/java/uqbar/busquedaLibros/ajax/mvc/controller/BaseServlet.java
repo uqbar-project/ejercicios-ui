@@ -1,4 +1,4 @@
-package uqbar.busquedaLibros.ajax.mvc.controllers;
+package uqbar.busquedaLibros.ajax.mvc.controller;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

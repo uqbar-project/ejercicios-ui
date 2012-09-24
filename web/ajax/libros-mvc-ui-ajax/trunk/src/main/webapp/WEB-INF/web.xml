@@ -6,11 +6,11 @@
 	<display-name>Ejemplo de Servlets, JSP, JSTL y EL</display-name>
 	<servlet>
 		<servlet-name>searchServlet</servlet-name>
-		<servlet-class>uqbar.busquedaLibros.ajax.mvc.controllers.SearchServlet</servlet-class>
+		<servlet-class>uqbar.busquedaLibros.ajax.mvc.controller.SearchServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>detalleServlet</servlet-name>
-		<servlet-class>uqbar.busquedaLibros.ajax.mvc.controllers.DetalleServlet</servlet-class>
+		<servlet-class>uqbar.busquedaLibros.ajax.mvc.controller.DetalleServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searchServlet</servlet-name>
