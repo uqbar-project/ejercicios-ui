@@ -6,7 +6,7 @@
 	<display-name>Archetype Created Web Application</display-name>
 	<servlet>
 		<servlet-name>calcular</servlet-name>
-		<servlet-class>ar.edu.unq.tpi.labso.calculadora.control.CalcularServlet</servlet-class>
+		<servlet-class>uqbar.calculadora.controllers.CalcularServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>calcular</servlet-name>

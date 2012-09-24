@@ -13,7 +13,7 @@
 <h2>Calculadora</h2>
 
 <form method="post" action="calcular">
-	Ingrese un número:
+	Ingrese un n&uacute;mero:
 	<input type="text" name="arg1" value="${param.arg1}"/>
 	<br/>
 	

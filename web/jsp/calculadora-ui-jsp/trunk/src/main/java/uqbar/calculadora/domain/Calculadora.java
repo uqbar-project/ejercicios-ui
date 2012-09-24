@@ -1,4 +1,4 @@
-package ar.edu.unq.tpi.labso.calculadora.domain;
+package uqbar.calculadora.domain;
 
 public class Calculadora {
 	

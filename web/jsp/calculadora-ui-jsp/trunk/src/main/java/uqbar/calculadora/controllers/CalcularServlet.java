@@ -1,4 +1,4 @@
-package ar.edu.unq.tpi.labso.calculadora.control;
+package uqbar.calculadora.controllers;
 
 import java.io.IOException;
 
@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ar.edu.unq.tpi.labso.calculadora.domain.Calculadora;
+import uqbar.calculadora.domain.Calculadora;
+
 
 public class CalcularServlet extends HttpServlet {
 
