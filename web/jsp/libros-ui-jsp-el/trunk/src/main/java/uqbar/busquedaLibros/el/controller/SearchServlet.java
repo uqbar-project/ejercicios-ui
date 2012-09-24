@@ -1,4 +1,4 @@
-package uqbar.busquedaLibros.el.controllers;
+package uqbar.busquedaLibros.el.controller;
 
 import java.io.IOException;
 import java.util.Collection;
