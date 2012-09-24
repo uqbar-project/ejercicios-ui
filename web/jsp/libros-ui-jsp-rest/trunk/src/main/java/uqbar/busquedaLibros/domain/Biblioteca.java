@@ -1,8 +1,9 @@
-package com.uqbar.edu.progui.examples.jsp;
+package uqbar.busquedaLibros.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 
 public class Biblioteca {
 	private static final Biblioteca instance = new Biblioteca();
@@ -11,12 +12,13 @@ public class Biblioteca {
 
 	public Biblioteca() {
 		this.addLibro("Las venas abiertas de América Latina", "Eduardo Galeano");
-		this.addLibro("Guerra y Paz", "León Tolstoy");
+		this.addLibro("Guerra y Paz", "León Tolstoi");
 		this.addLibro("Patas Arriba", "Eduardo Galeano");
 		this.addLibro("Historia del siglo XX", "Eric Hobsbawm");
 		this.addLibro("Ficciones", "Jorge Luis Borges");
 		this.addLibro("100 años de soledad", "Gabriel García Márquez");
-		this.addLibro("Sobre héroes y tumbas", "Ernesto Sábato");
+		this.addLibro("Un día en la vida de Ivan Denisovich", "Alexander Solyenitsin");
+		this.addLibro("El día del arquero", "Juan Sasturain");
 	}
 
 	public static Biblioteca getInstance() {

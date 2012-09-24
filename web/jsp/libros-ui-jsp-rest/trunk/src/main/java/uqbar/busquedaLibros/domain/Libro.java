@@ -1,4 +1,4 @@
-package com.uqbar.edu.progui.examples.jsp;
+package uqbar.busquedaLibros.domain;
 
 public class Libro {
 	private final String titulo;

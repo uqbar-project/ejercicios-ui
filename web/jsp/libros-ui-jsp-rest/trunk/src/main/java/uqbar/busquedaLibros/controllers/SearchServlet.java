@@ -1,4 +1,4 @@
-package com.uqbar.edu.progui.examples.jsp;
+package uqbar.busquedaLibros.controllers;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import uqbar.busquedaLibros.domain.Biblioteca;
+import uqbar.busquedaLibros.domain.Libro;
+
+@SuppressWarnings("serial")
 public class SearchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
