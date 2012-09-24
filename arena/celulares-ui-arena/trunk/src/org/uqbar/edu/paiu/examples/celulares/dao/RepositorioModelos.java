@@ -8,6 +8,7 @@ import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
 
+@SuppressWarnings("serial")
 @Observable
 public class RepositorioModelos implements Serializable {
 	private static RepositorioModelos instance;
@@ -43,4 +44,5 @@ public class RepositorioModelos implements Serializable {
 	public List<ModeloCelular> getModelos() {
 		return this.data;
 	}
+	
 }

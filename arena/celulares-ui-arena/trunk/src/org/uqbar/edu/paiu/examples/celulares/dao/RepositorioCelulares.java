@@ -12,6 +12,7 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
  * 
  * @author npasserini
  */
+@SuppressWarnings("serial")
 @Observable
 public class RepositorioCelulares implements Serializable {
 	private static RepositorioCelulares instance;
@@ -81,4 +82,21 @@ public class RepositorioCelulares implements Serializable {
 		return expectedValue == null
 			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
 	}
+
+	/**
+	 * Para el proyecto web - se mantiene la busqueda por Identificador
+	 * 
+	 * @param numero
+	 * @param nombre
+	 * @return
+	 */
+	public Celular searchById(int id) {
+		for (Celular celular : this.data) {
+			if (celular.getId().equals(id)) {
+				return celular;
+			}
+		}
+		return null;
+	}
+
 }
