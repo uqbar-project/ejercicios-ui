@@ -1,4 +1,4 @@
-package uqbar.busquedaLibros.ajax.controllers;
+package uqbar.busquedaLibros.ajax.controller;
 
 import java.io.IOException;
 
