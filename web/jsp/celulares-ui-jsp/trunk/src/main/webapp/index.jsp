@@ -115,11 +115,6 @@ function validar() {
 		validarSimple();
 		break;
 	default:
-		var modelo = get('modelo');
-		var idModelo = (modelo.options[modelo.selectedIndex].id);
-		if (idModelo != -1) {
-			get('idModelo').value = idModelo;
-		} 
 		document.celularForm.submit();
 		break;
 	}
@@ -155,9 +150,7 @@ function procesarValidaciones() {
 	request.setAttribute("paginaOrigen", request.getRequestURI());
 	request.setAttribute("modelos", RepositorioModelos.getInstance().getModelos());
 	
-	String idModelo = request.getParameter("idModelo");
 %>
-
 
 <div class="info" id="mensajesOk" style="display: none;"></div>
 <div class="error" id="mensajesError" style="display: none;"></div>
@@ -177,13 +170,16 @@ function procesarValidaciones() {
 		<td align="right">Modelo:</td>
 		<td><select name="modelo" id="modelo">
 			<option id="-1"></option>
-			<%for(ModeloCelular modelo : (Collection<ModeloCelular>) request.getAttribute("modelos")) {%>
-				<option id="<%=modelo.getId()%>" 
-					<%if (idModelo != null && !idModelo.equals("") && modelo.getId().equals(new Integer(idModelo))) {
-						%>selected<%
-					}%>><%=modelo.getDescripcion() %>
+			<c:set var="modeloSeleccionado" value="${param.modelo}"/>
+			<c:forEach var="itModelo" items="${modelos}">
+				<option id="${itModelo.getDescripcion()}"
+					<c:if test="${modeloSeleccionado != null && itModelo.getDescripcion().equals(modeloSeleccionado)}">
+						selected="selected" 
+					</c:if>
+				>
+					<c:out value="${itModelo.getDescripcion()}"/>
 				</option>
-			<% } %>
+			</c:forEach>
 		</select></td>
 	</tr>
 	<tr>
@@ -195,7 +191,7 @@ function procesarValidaciones() {
 		   
 		%>
 		<td align="right" halign="top">Tipo de validaci&oacute;n:</td>
-		<td><input type="radio" name="tipoValidacion" value="1"
+		<td><input type="radio" name="tipoValidacion" value="1" 
 			id="tipoValidacion" checked="<%=tipoValidacion == 1%>" />client-side (todos los errores)<br />
 		<input type="radio" name="tipoValidacion" value="2"
 			id="tipoValidacion" checked="<%=tipoValidacion == 2%>"/>client-side (de a un error)<br />
@@ -206,7 +202,6 @@ function procesarValidaciones() {
 		<td align="center" colspan="2"><br />
 		<input type="button" value="Validar" onClick="javascript:validar();" /></td>
 		<input type="hidden" id="message" name="message" value="${requestScope.message}"/>
-		<input type="hidden" id="idModelo" name="idModelo"/>
 	</tr>
 </table>
 </form>
