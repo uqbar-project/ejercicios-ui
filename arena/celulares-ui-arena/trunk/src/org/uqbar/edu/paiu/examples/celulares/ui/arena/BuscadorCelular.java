@@ -1,5 +1,6 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
@@ -23,7 +24,7 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
  * @author npasserini
  */
 @Observable
-public class BuscadorCelular {
+public class BuscadorCelular implements Serializable {
 	private Integer numero;
 	private String nombre;
 	private List<Celular> resultados;
