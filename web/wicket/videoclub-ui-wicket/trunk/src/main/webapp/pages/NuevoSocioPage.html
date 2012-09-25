@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="Styles/cs_basic.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Nuevo Cliente</title>
+    </head>
+    <body>
+        <table width="80%">
+            <tr>
+                <td>
+                    <image src="Images/videoclub.jpg"/>
+                </td>
+                <td>
+                    <h1>Nuevo Cliente</h1>
+                </td>
+            </tr>
+        </table>
+        
+        <form wicket:id="nuevoClienteForm">
+            <table width="80%">
+                <tr>
+                    <td align="right">Nombre:</td>
+                    <td align="left">
+                        <input wicket:id="nombre" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Direcci&oacute;n:</td>
+                    <td align="left">
+                        <input wicket:id="direccion" type="text" size="35" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20" colspan="2">
+                    	<div wicket:id="feedbackPanel">
+                    	</div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input wicket:id="aceptar" type="submit" name="aceptar" value="Aceptar" />
+                        <input wicket:id="cancelar" type="submit" name="cancelar" value="Cancelar" />
+                    </td>
+                </tr>
+            </table>
+            <br/>
+        </form>
+    </body>
+</html>

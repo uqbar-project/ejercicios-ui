@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="Styles/cs_basic.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Actualizaci&oacute;n de Clientes</title>
+    </head>
+    <body>
+
+        <table width="80%">
+            <tr>
+                <td>
+                    <image src="Images/videoclub.jpg"/>
+                </td>
+                <td>
+                    <h1>Actualizaci&oacute;n de Clientes</h1>
+                </td>
+            </tr>
+        </table>
+        
+        <form wicket:id="buscarForm">
+            <table width="80%">
+                <tr>
+                    <td align="right">Nombre contiene:</td>
+                    <td align="left">
+                        <input wicket:id="nombre" type="text" name="nombre"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Direcci&oacute;n contiene:</td>
+                    <td align="left">
+                    	<input wicket:id="direccion" type="text" name="direccion"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                    	<input wicket:id="buscar" type="button" name="buscar" value="Buscar"/>
+                        <input wicket:id="limpiar" type="button" name="limpiar" value="Limpiar"/>
+                        <input wicket:id="nuevoCliente" type="button" name="crear" value="Nuevo Cliente"/>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            
+            <div wicket:id="resultSection">
+            	<table id="main" width="80%">
+                	<th id="main" width="40%">Nombre completo</th>
+                	<th id="main" width="40%">Direcci&oacute;n</th>
+                	<th id="main" width="6%"/>
+                	<th id="main" width="6%"/>
+                	<th id="main" width="8%"/>
+       
+                   	<tr wicket:id="resultado" id="main" width="100%">
+                    	<td id="main" width="40%">
+                    	    <span wicket:id="nombre">unNombre</span> 
+                	    </td> 
+            	        <td id="main" width="40%">
+        	            	<span wicket:id="direccion">unaDireccion</span>
+    	                </td> 
+	                    <td>
+                        	<a href="#" style="background-color:none;padding:0px;text-decoration: none;">
+                                <image src="Images/save.gif" alt="modificar datos del cliente" />
+                            </a> 
+                    	</td>
+                	    <td>
+                	    	<a wicket:id="eliminar" href="#" event="preDelete" style="background-color:none;padding:0px;text-decoration: none;">
+            	            	<image src="Images/delete.gif" alt="eliminar el cliente" />
+                            </a>
+        	            </td>
+    	                <td>
+    	                	<a wicket:id="alquilar" href="#">
+	                        	<image src="Images/alquilar.gif" alt="alquilar películas para ese cliente" />
+	                        </a>
+                    	</td>                    
+                	</tr>
+            	</table>
+            </div>
+        </form>
+    </body>
+</html>

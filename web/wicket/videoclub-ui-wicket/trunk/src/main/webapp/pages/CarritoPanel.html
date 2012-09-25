@@ -1,0 +1,28 @@
+<wicket:panel>
+
+	<table id="main" width="100%">
+		<tr>
+			<td colspan="2" align="center">
+				<image	src="Images/carrito.jpg" height="150" width="150" />
+			</td>
+		</tr>
+		<tr>
+			<th align="right">Total:</th>
+			<th align="right">
+				$<span wicket:id="costo">22.00</span>	
+			</th>
+		</tr>
+	</table>
+	<br />
+	<table id="gris" border="1" width="100%" cellpadding="2" cellspacing="2">
+		<tr>
+			<th>Películas que lleva:</th>
+			<th>Director</th>
+		</tr>
+		<tr wicket:id="peliculasParaAlquilar">
+			<td><span wicket:id="nombre">UnNombre</span></td>
+			<td><span wicket:id="director">UnDirector</span></td>
+		</tr>
+	</table>
+
+</wicket:panel>

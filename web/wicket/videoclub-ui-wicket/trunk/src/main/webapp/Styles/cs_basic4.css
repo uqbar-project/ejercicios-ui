@@ -1,0 +1,465 @@
+/* CSS Document */
+/* These are the basic UCL-CS styles. 
+   Colours are set in the various "area" stylesheets, 
+   e.g. cs_students.css */
+
+/* These styles apply to the whole page */   
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* This can be used to force the default font size */
+.defaultsize {
+    font-size: 10pt;
+}
+
+
+a {
+    text-decoration: underline;
+}	
+	
+a:link {
+    color: #000000;
+}
+a:visited {
+    color: #000000;
+}
+a:hover {
+    color: #0f0f0f;
+}
+a:active {
+    color: #000000;
+}
+
+table { 
+	font-weight: normal;
+/*	font-size: inherit;*/
+	color: #000000;
+	caption-side: bottom;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+	border-width: 0px;
+	border-spacing: 0px 0px;
+	border-collapse: collapse;
+}
+
+tr {
+	border-width: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+
+}
+td {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+}
+h1 {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-bottom: 4pt;
+	margin-top: 8pt;
+}
+h2 {
+	font-size: 1em;
+	font-weight: bold;
+}
+h3 {
+	font-size: 1em;
+	font-weight: normal;
+}
+h4 {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.heavy, .heavytype {
+	font-weight: bold;
+}
+
+/* Styles for the banner */
+
+*#banner {
+    background-color: #CCCCCC;
+}
+
+*#section_header_CS {
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-decoration: none;
+}
+
+*#section_header_CS a:link,
+*#section_header_CS a:visited,
+*#section_header_CS a:active  {
+	color:#000000;
+	text-decoration: none;
+}
+
+*#section_header_CS a:hover {
+	color:#FFFFFF;
+}
+
+*#section_subheader_CS {
+	font-size: 11px;
+	font-weight:lighter;
+	padding-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+*#section_subheader_CS a:link,
+*#section_subheader_CS a:visited,
+*#section_subheader_CS a:active {
+	color:#000000;
+	text-decoration: none;
+}
+
+*#section_subheader_CS a:hover {
+	color:#FFFFFF;
+}
+	
+/* Styles for the rollover bar*/
+
+*#rollovers {
+    padding-top: 0;
+	margin-top: 0;
+}
+
+*#rollovers td {
+    margin-left: 0;
+	padding-left: 0;
+	margin-right: 0;
+	margin-left: 0;
+}	
+	
+*#rollovers a {
+    text-decoration: none;
+	font-weight: bold;
+}
+
+*#rollovers a,	
+*#rollovers a:link,
+*#rollovers a:visited,
+*#rollovers a:active{
+    color: #000000;
+}
+
+*#rollovers a:hover{
+    color: #ffffff;
+}
+
+*#menu_col, *#content_col, *#text_size_col {
+    padding-left: 6px;
+	padding-right: 6px
+}	
+
+/* These styles affect the main editable region of the document 
+   which has the identifier "main" */
+
+*#main a {
+    text-decoration: none;
+}	
+   
+*#main a:link {
+    color: #0000a0;
+}
+*#main a:visited {
+    color: #0000a0;
+}
+*#main a:hover {
+    color: #0000ff;
+}
+*#main a:active {
+    color: #0000a0;
+}
+
+*#main th { 
+/*	border-width: 0px; */
+	text-align: center; 
+    font-weight: bold;
+	vertical-align: middle;
+    padding-left: 1ex;
+	padding-right: 1ex;
+	height: 5ex;
+}
+
+*#main td {
+/*	border-width: 0px; */
+/*    text-align: left; */
+    font-weight: normal;
+	vertical-align: top;
+    padding-left: 0ex;
+	padding-right: 1ex;
+	padding-bottom: 1ex;
+	padding-top: 0ex;
+}
+
+*#main table.grey th, *#main tr.grey th, *#main th.grey,
+*#main table.greytable th, *#main tr.greytable th, *#main th.greytable {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+    background-color: #000000;
+}
+
+*#main table.grey td, *#main tr.grey td, *#main td.grey,
+*#main table.greytable td, *#main tr.greytable td, *#main td.greytable {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FFFFFF;
+    background-color: #E0E0E0;
+	padding-bottom: 0ex;
+}
+*#main caption {
+    font-style: italic;
+}
+
+*#main ul {
+	margin-left: 1em; 
+	padding-left: 1em;
+}
+	
+*#main li ol {
+    list-style-type: lower-alpha; 
+}		
+*#main li ol li ol {
+    list-style-type: lower-roman; 
+}
+*#main dl dt {
+    font-weight: bold; 
+}		
+*#main pre {
+	font-family: Courier New, Courier, mono;
+	font-size: 1.2em
+}
+
+*#left_menu {
+	text-align: left;
+	background-color: #CCCCCC;
+}
+
+*#left_menu ul{
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}		
+
+*#left_menu li{
+	margin-bottom: 0.4em;
+}		
+
+*#left_menu a {
+    text-decoration: none;
+	text-align: left;
+	margin-bottom: 20px;
+}	
+   
+*#left_menu a:link {
+    color: #0000a0;
+}
+*#left_menu a:visited {
+    color: #0000a0;
+}
+*#left_menu a:hover {
+    color: #0000ff;
+}
+
+*#left_menu a:active {
+    color: #0000a0;
+}
+/*
+*#left_menu td {
+	text-align: left;
+}
+*/
+*#left_menu hr {
+	margin-left: 0;
+	width: 100%;
+}
+
+.fixed, .fixedwidth, .code {
+	font-family: Courier New, Courier, mono;
+	font-size: 1.2em
+}
+.centred {
+    text-align: center;
+}
+
+/* Layout constants */
+/* These ones apply only to the screen */
+@media screen {
+*#UCLBanner {
+  width: 265px; height: 110px;
+}
+
+*#everything {
+  width: 800px;
+}
+
+*#left_column_left_spacer, *#left_column_right_spacer {
+  width: 15px;
+  height: 1px;
+}  
+
+*#left_column_top_spacer {
+  width: 149px;
+  height: 30px;
+}
+
+*#home_rollover {
+  width: 53px;
+}
+
+*#admissions_rollover {
+  width: 95px;
+}
+
+*#students_rollover {
+  width: 76px;
+}
+
+*#alumni_rollover {
+  width: 68px;
+}
+
+*#research_rollover {
+  width: 81px;
+}
+
+*#business_rollover {
+  width: 77px;
+}
+
+*#people_rollover {
+  width: 62px;
+}
+
+*#help_rollover {
+  width: 50px;
+}
+  
+*#rollover_col1_spacer {
+  width: 15px;
+  height: 1px;
+} 
+   
+*#rollover_col2_spacer {
+  width: 149px;
+  height: 1px;
+}
+
+*#rollover_col3_spacer {
+  width: 15px;
+  height: 1px;
+}
+
+*#rollover_col4-11_spacer {
+  width: 562px;
+  height: 1px;
+}
+*#rollover_col12_spacer {
+  width: 59px;
+  height: 1px;
+}
+
+*#round_top {
+  width: 149px;
+  height: 10px;
+}
+
+*#search {
+  width: 62px;
+  height: 18px;
+}
+
+#uclsearch {
+display:block;
+padding-left:5px;
+}
+
+*#round_bottom {
+  width: 149px;
+  height: 11px;
+}
+
+*#left_column_bottom_spacer {
+  width: 149px;
+  height: 30px;
+}
+
+*#poster_image {
+  width: 562px;
+  height: 200px;
+}
+
+*#right_column_spacer {
+  width: 59px;
+  height: 1px;
+}  
+
+*#poster_padding {
+  height: 20px;
+}  
+
+*#poster_spacer {
+  width: 562px;
+  height: 1px;
+}  
+
+*#footer1, *#footer2 {
+  height: 10px; max-height: 10px;
+}  
+
+*#bottom_line_image {
+  width: 400px; height: 20px;
+}  
+}
+
+/* These ones apply only when printing */
+/* (Dreamweaver parser seems broken so these have to be each in a separate print block) */
+@media print {
+*#main_spacer {width: 15cm; max-width: 15cm; height: 1px;}
+}
+
+@media print {
+*#left_spacer, *#right_spacer, *#left_pad, *#right_pad {width: 1cm; max-width: 1cm;}
+}
+
+@media print {
+*#banner {width: 17cm; height: 1.7cm;}
+}
+
+@media print {
+*#everything {width: 17cm; max-width: 17cm;}
+}
+
+@media print {
+*#main_body {width: 17cm;}
+} 
+
+@media print {
+*#main {width: 17cm; max-width: 17cm;} 
+}
+
+/* These bits get left out when printing */
+@media print {
+*#left, *#right, *#textsize, *#footer1,
+*#poster, *#poster_divider, *#bottom_line, *#rollovers,
+*#left_pad, *#right_pad, *#inlinelist_new, *#google_tm{
+	display: none;
+}
+}

@@ -1,0 +1,57 @@
+<wicket:panel>
+
+<table width="100%" id="grey" cellspacing="1" cellpadding="1">
+	<tr>
+		<td>
+		<h2>Agregar película</h2>
+		</td>
+		<td colspan="2" align="right"><image
+			src="Images/peliculas.JPG" height="140" width="140" /></td>
+	</tr>
+</table>
+<form wicket:id="busquedaForm">
+<table width="80%">
+	<tr>
+		<td align="right">Género:</td>
+		<td align="left"><select wicket:id="genero">
+			<option value="Terror">Terror</option>
+			<option value="Suspenso">Suspenso</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td align="right">Título contiene:</td>
+		<td align="left">
+			<input wicket:id="nombre" type="text" size="30" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td height="20"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input wicket:id="buscar" type="submit" value="Buscar" /> 
+			<input wicket:id="limpiar" type="button" value="Limpiar" /></td>
+	</tr>
+</table>
+<br />
+<div wicket:id="resultSection">
+<table id="gris" border="1" width="100%" cellpadding="2" cellspacing="2">
+	<tr>
+		<th>Título</th>
+		<th>Director</th>
+		<th>Género</th>
+		<th>&nbsp;</th>
+	</tr>
+	<tr wicket:id="list">
+		<td><span wicket:id="nombre">UnNombre</span></td>
+		<td><span wicket:id="director">UnDirector</span></td>
+		<td><span wicket:id="genero">UnGenero</span></td>
+		<td align="center">
+			<a wicket:id="alquilar" href="#"><image src="Images/alquilar.gif" style="cursor:hand" alt="alquilar" /></a>
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+
+</wicket:panel>

@@ -1,0 +1,37 @@
+/* CSS Document */
+/* This sets the basic font size
+   Other properties are set in cs_basic.css and the various "area" stylesheets, 
+   e.g. cs_students.css */
+
+/* IE5 uses small as its default. Other browsers use medium.
+   IE5 parser is broken so gives up at the second line. With luck this means
+   this size setting has the same effect on all browsers
+   */ 
+     
+/* This one is needed to get a reasonable font size in the Contribute2 editor.
+   It is over-ridden in other contexts
+*/   
+body, table {
+    font-size: xx-small;
+}
+
+@media screen {
+body {
+	font-size: 69%;	
+    voice-family: "\"}\"";
+    voice-family:inherit;
+    font-size: 83%;
+}
+}
+@media screen {
+body table {
+    font-size: 100%;
+    voice-family: "\"}\"";
+    voice-family:inherit;
+    font-size: inherit;
+}
+}
+
+@media print {
+body, body table {font-size: 10pt;}
+}

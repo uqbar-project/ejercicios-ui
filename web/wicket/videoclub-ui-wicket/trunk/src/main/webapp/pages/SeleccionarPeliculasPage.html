@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="Styles/cs_basic.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Nuevo pedido - paso 1 de 3</title>
+    </head>
+
+<body>
+
+<table width="100%" height="100%">
+	<tr>
+		<td><image src="Images/videoclub.jpg" /></td>
+		<td>
+		<h1>Nuevo pedido - Paso 1 de 3</h1>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div wicket:id="carrito" style="float:left;width:25%;height:100%;" />
+			<div wicket:id="seleccionar" style="float:right;width:75%;height:100%;" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<table width="100%" height="50px" bgcolor="#FFFFCC">
+			<tr>
+				<td align="center">
+					<input type="button" value="Anterior"/>
+				</td>
+				<td align="center">
+					<b>Socio:</b> <span wicket:id="socio">NombreSocio</span>
+				</td>
+				<td align="center">
+					<input type="submit" value="Siguiente" />
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
