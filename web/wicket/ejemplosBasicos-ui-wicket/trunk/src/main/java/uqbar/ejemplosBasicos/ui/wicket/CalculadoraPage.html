@@ -1,0 +1,51 @@
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.5-strict.dtd" >
+    <head> 
+    	<link rel="stylesheet" type="text/css" href="styles/cs_basic.css" /> 
+        <title>Ejemplos basicos de Wicket</title>
+    </head>
+    <body>
+		<h2>Calculadora Wicket</h2>
+		<form wicket:id="calculadoraForm">
+			<table width="70%">
+                <tr>
+                    <td align="right">Ingrese un valor:</td>
+                    <td align="left">
+                        <input wicket:id="operando1" type="text" size="6"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Ingrese otro valor:</td>
+                    <td align="left">
+                        <input wicket:id="operando2" type="text" size="6" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20" colspan="2">
+                    	<div wicket:id="feedbackPanel">
+                    	</div> 
+                    </td>
+                </tr>
+				<br/>
+                <tr>
+                	<td colspan="2" align="center">
+						<input type="submit" wicket:id="sumar" value="Sumar" >
+                	</td>
+                </tr>
+				<br/>
+                <tr>
+                	<td colspan="2" align="center">
+						<h3><span wicket:id="resultado" /></h3>
+                	</td>
+                </tr>
+                <tr>
+                	<td colspan="2" align="center">
+				        <br/>
+				    		<a href="#" wicket:id="linkVolver">Volver</a>
+				        <br/>
+                	</td>
+                </tr>
+
+			</table>
+		</form>
+    </body>
+</html>

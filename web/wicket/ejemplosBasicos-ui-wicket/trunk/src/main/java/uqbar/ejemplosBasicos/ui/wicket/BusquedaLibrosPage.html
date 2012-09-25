@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+       	<link rel="stylesheet" type="text/css" href="styles/cs_basic.css" /> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>B&uacute;squeda de libros</title>
+    </head>
+    <body>
+
+        <table width="80%">
+            <tr>
+                <td>
+                    <h1>B&uacute;squeda de Libros</h1>
+                </td>
+            </tr>
+        </table>
+        
+        <form wicket:id="buscarLibrosForm">
+            <table width="80%">
+                <tr>
+                    <td align="right">T&iacute;tulo a buscar:</td>
+                    <td align="left">
+                        <input wicket:id="tituloBusqueda" type="text" name="tituloBusqueda"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                    	<a href="#" wicket:id="buscar">Buscar</a>
+                        <!-- input wicket:id="limpiar" type="button" name="limpiar" value="Limpiar"/-->
+                        
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            
+           	<table id="main" width="80%">
+               	<th id="main" width="40%">T&iacute;tulo</th>
+               	<th id="main" width="40%">Autor</th>
+                  	<tr wicket:id="resultado" id="main" width="100%">
+                   	<td id="main" width="40%">
+                   	    <span wicket:id="titulo">unTitulo</span> 
+               	    </td> 
+           	        <td id="main" width="40%">
+       	            	<span wicket:id="autor">unAutor</span>
+   	                </td> 
+               	</tr>
+           	</table>
+            <br/>
+			<a href="#" wicket:id="linkVolver">Volver</a>
+			<br/>
+        </form>
+    </body>
+</html>
