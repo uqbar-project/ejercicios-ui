@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.5-strict.dtd">
+    <head>
+       	<link rel="stylesheet" type="text/css" href="styles/cs_basic.css" /> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>B&uacute;squeda de libros</title>
+    </head>
+    <body>
+        <h1>B&uacute;squeda de Libros</h1>
+
+        <form wicket:id="buscarLibrosForm">
+            <div class="buscar">
+	            <span>T&iacute;tulo a buscar:</span>
+	            <input wicket:id="tituloBusqueda" type="text" name="tituloBusqueda"/>
+	            <a href="#" wicket:id="buscar">Buscar</a>
+           	</div>
+	            
+           	<table id="main" width="80%">
+           		<thead><tr>
+	               	<th id="main" width="40%">T&iacute;tulo</th>
+	               	<th id="main" width="40%">Autor</th>
+               	</tr></thead>
+               	<tbody><tr wicket:id="resultado" id="main">
+                   	<td id="main" width="40%"><span wicket:id="titulo">unTitulo</span></td> 
+           	        <td id="main" width="40%"><span wicket:id="autor">unAutor</span></td> 
+               	</tr></tbody>
+           	</table>
+			
+			<a href="#" class="volver" wicket:id="linkVolver">Volver</a>
+        </form>
+    </body>
+</html>

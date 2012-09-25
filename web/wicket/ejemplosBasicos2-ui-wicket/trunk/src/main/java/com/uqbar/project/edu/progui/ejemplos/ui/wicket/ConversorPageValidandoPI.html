@@ -1,0 +1,24 @@
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.5-strict.dtd" >
+    <head> 
+    	<link rel="stylesheet" type="text/css" href="styles/cs_conversor.css" /> 
+        <title>Ejemplos basicos de Wicket</title>
+    </head>
+    <body>
+		<h2>Conversor Wicket</h2>
+		<form wicket:id="conversorForm" class="conversor">
+			
+			<div class="ingreseValores">
+				<span class="millasLabel">Millas:</span>
+				<input wicket:id="millas" type="text" class="millasValue" />
+				
+				<input type="submit" wicket:id="convertir" value="Convertir" class="convertirButton">
+			</div>
+
+			<div wicket:id="feedbackPanel" class="feedbackPanel">Feedback va aqui</div> 
+
+			<span wicket:id="resultado" class="resultado">100</span>
+	   		<a href="#" wicket:id="linkVolver" class="volverLink">Volver</a>
+
+		</form>
+    </body>
+</html>
