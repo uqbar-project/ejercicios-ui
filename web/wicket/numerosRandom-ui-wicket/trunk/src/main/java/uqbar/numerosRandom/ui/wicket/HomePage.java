@@ -1,0 +1,27 @@
+package uqbar.numerosRandom.ui.wicket;
+
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.markup.html.WebPage;
+
+/**
+ * Homepage
+ */
+public class HomePage extends WebPage {
+
+	private static final long serialVersionUID = 1L;
+
+	// TODO Add any page properties or variables here
+
+    /**
+	 * Constructor that is invoked when page is invoked without a session.
+	 * 
+	 * @param parameters
+	 *            Page parameters
+	 */
+    public HomePage(final PageParameters parameters) {
+
+    	add(new RandomComponent("random", 20, 70));
+    	add(new RandomComponent("random2", 1, 10));
+    	add(new RandomComponent("random3", 70, 170));
+    }
+}
