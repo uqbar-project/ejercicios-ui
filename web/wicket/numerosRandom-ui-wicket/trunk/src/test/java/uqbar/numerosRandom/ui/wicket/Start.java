@@ -1,4 +1,4 @@
-package ar.edu.unq.labso.clase_wicket_2;
+package uqbar.numerosRandom.ui.wicket;
 
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;
