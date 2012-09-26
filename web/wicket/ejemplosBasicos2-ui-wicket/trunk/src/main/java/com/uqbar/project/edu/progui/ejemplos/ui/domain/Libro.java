@@ -2,7 +2,6 @@ package com.uqbar.project.edu.progui.ejemplos.ui.domain;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class Libro implements Serializable {
 	private final String titulo;
 	private final String autor;

@@ -12,30 +12,18 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-/**
- * Homepage
- */
 public class HomePage extends WebPage {
-
-	private static final long serialVersionUID = 1L;
-
-	// TODO Add any page properties or variables here
-
 	/**
 	 * Constructor that is invoked when page is invoked without a session.
-	 * 
-	 * @param parameters Page parameters
 	 */
 	public HomePage(final PageParameters parameters) {
 		// Add the simplest type of label
 		add(new Label("message", this.getHoraActual()));
 		add(new PropertyListView<MenuAction>("links", this.getOpciones()) {
-			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected void populateItem(final ListItem<MenuAction> item) {
 				Link<Object> link = new Link<Object>("link") {
-					private static final long serialVersionUID = 1L;
 
 					@Override
 					public void onClick() {

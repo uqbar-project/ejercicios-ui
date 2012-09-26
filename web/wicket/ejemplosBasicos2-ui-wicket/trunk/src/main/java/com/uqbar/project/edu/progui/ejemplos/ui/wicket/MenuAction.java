@@ -5,7 +5,6 @@ import java.io.Serializable;
 import org.apache.wicket.Page;
 
 public class MenuAction implements Serializable{
-	private static final long serialVersionUID = -6824106719795847684L;
 	private Class<? extends Page> responsePage;
 	private String linkName;
 	
