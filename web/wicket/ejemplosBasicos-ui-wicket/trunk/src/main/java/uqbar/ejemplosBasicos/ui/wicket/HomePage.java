@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

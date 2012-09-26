@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;

@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.domain;
+package uqbar.ejemplosBasicos.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;

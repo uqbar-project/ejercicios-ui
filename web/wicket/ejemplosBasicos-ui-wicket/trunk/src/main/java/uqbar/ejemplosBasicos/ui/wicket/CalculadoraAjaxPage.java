@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -12,7 +12,8 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import com.uqbar.project.edu.progui.ejemplos.ui.domain.Calculadora;
+import uqbar.ejemplosBasicos.domain.Calculadora;
+
 
 public class CalculadoraAjaxPage extends WebPage {
 

@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -10,33 +10,37 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import com.uqbar.project.edu.progui.ejemplos.ui.domain.Conversor;
+import uqbar.ejemplosBasicos.domain.Calculadora;
 
-public class ConversorPage extends WebPage {
 
-	private Conversor conversor;
+public class CalculadoraPage extends WebPage {
+
+	private static final long serialVersionUID = 1L;
+
+	private Calculadora calculadora;
     /**
 	 * Constructor that is invoked when page is invoked without a session.
+	 * 
+	 * @param parameters
+	 *            Page parameters
 	 */
-    public ConversorPage(final PageParameters parameters) {
-		Form<Conversor> form = new Form<Conversor>("conversorForm", this.createModel());
+    public CalculadoraPage(final PageParameters parameters) {
+		Form form = new Form("calculadoraForm", this.createModel());
 		this.add(form);
+
 		this.addFields(form);
 		this.addActions(form);
     }
     
-	protected void addActions(Form<Conversor> form) {
-		form.add(new Button("convertir") {
-
+	private void addActions(Form form) {
+		form.add(new Button("sumar") {
 			@Override
 			public void onSubmit() {
-				conversor.convertir();
+				CalculadoraPage.this.calculadora.sumar();
 			}
 		});
 
     	form.add(new Link<Object>("linkVolver") {
-			private static final long serialVersionUID = 1L;
-
 			@Override
 			public void onClick() {
 				this.setResponsePage(HomePage.class);
@@ -44,19 +48,16 @@ public class ConversorPage extends WebPage {
 		});
 	}
 
-	private void addFields(final Form<Conversor> form) {
-		form.add(this.createMillasField(form));
+	private void addFields(Form form) {
+		form.add(new TextField("operando1"));
+		form.add(new TextField("operando2"));
 		form.add(new Label("resultado"));
 		form.add(new FeedbackPanel("feedbackPanel"));		
 	}
 
-	protected TextField<Double> createMillasField(final Form<Conversor> form) {
-		return new TextField<Double>("millas");
-	}
-
-	protected CompoundPropertyModel<Conversor> createModel() {
-		this.conversor = new Conversor();
-		return new CompoundPropertyModel<Conversor>(this.conversor);
+	protected CompoundPropertyModel createModel() {
+		this.calculadora = new Calculadora();
+		return new CompoundPropertyModel(this.calculadora);
 	}
 
 }

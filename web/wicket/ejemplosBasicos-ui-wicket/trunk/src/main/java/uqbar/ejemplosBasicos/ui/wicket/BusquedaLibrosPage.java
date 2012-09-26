@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
@@ -11,8 +11,9 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 import org.apache.wicket.model.CompoundPropertyModel;
 
-import com.uqbar.project.edu.progui.ejemplos.ui.domain.BuscadorLibros;
-import com.uqbar.project.edu.progui.ejemplos.ui.domain.Libro;
+import uqbar.ejemplosBasicos.applicationModel.BuscadorLibros;
+import uqbar.ejemplosBasicos.domain.Libro;
+
 
 public class BusquedaLibrosPage extends WebPage {
 	private final BuscadorLibros buscador;

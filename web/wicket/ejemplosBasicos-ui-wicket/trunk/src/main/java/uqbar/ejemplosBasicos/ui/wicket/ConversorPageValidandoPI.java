@@ -1,4 +1,4 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -9,7 +9,8 @@ import org.apache.wicket.validation.IValidationError;
 import org.apache.wicket.validation.IValidator;
 import org.apache.wicket.validation.ValidationError;
 
-import com.uqbar.project.edu.progui.ejemplos.ui.domain.Conversor;
+import uqbar.ejemplosBasicos.domain.Conversor;
+
 
 /**
  * la idea es mostrar una validacion propia asociando un IValidator a un componente

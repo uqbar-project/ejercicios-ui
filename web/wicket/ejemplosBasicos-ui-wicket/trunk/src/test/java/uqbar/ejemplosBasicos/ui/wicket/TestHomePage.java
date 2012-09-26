@@ -1,7 +1,10 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.wicket;
+package uqbar.ejemplosBasicos.ui.wicket;
 
 import junit.framework.TestCase;
 import org.apache.wicket.util.tester.WicketTester;
+
+import uqbar.ejemplosBasicos.ui.wicket.HomePage;
+import uqbar.ejemplosBasicos.ui.wicket.WicketApplication;
 
 /**
  * Simple test using the WicketTester

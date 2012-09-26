@@ -1,7 +1,10 @@
-package com.uqbar.project.edu.progui.ejemplos.ui.domain;
+package uqbar.ejemplosBasicos.applicationModel;
 
 import java.io.Serializable;
 import java.util.List;
+
+import uqbar.ejemplosBasicos.domain.Biblioteca;
+import uqbar.ejemplosBasicos.domain.Libro;
 
 public class BuscadorLibros implements Serializable {
 	private String tituloBusqueda = "";
