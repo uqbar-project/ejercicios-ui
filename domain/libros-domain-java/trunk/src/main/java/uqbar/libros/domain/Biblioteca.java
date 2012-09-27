@@ -1,4 +1,4 @@
-package uqbar.busquedaLibros.domain;
+package uqbar.libros.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,9 +1,9 @@
-package uqbar.busquedaLibros.applicationModel;
+package uqbar.libros.applicationModel;
 
 import java.util.List;
 
-import uqbar.busquedaLibros.domain.Biblioteca;
-import uqbar.busquedaLibros.domain.Libro;
+import uqbar.libros.domain.Biblioteca;
+import uqbar.libros.domain.Libro;
 
 public class BuscadorLibros {
 	private String textoBusqueda = "";
