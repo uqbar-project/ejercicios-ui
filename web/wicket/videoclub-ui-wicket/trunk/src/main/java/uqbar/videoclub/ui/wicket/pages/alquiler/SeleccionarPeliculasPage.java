@@ -28,8 +28,8 @@ public class SeleccionarPeliculasPage extends WebPage {
 	}
 	
 	protected void addSeleccionPeliculaSection() {
-		//this.add(new SeleccionarPeliculasPanel("seleccionar", this.getAlquilarPeliculasModel()));
-		this.add(new Panel("seleccionar"));
+		this.add(new SeleccionarPeliculasPanel("seleccionar", this.getAlquilarPeliculasModel()));
+		//this.add(new Panel("seleccionar"));
 	}
 
 	protected void addFooter() {

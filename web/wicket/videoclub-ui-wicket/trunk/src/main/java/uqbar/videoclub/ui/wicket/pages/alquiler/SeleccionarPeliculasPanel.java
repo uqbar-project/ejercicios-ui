@@ -22,8 +22,6 @@ import uqbar.videoclub.model.AlquilarPeliculas;
  * 
  * @author jfernandes
  */
-//REFACTORME: despues de un refactor en el dominio esto dejo de compilar. Creo que borraron los application model.
-// Chicos, no hagan esto en sus casas!
 public class SeleccionarPeliculasPanel extends Panel {
 	private static final long serialVersionUID = 1017239982582239643L;
 
@@ -57,16 +55,16 @@ public class SeleccionarPeliculasPanel extends Panel {
 		form.add(new AjaxButton("buscar") {
 			@Override
 			protected void onSubmit(AjaxRequestTarget target, Form form) {
-//				((SeleccionarPelicula) this.getParent().getDefaultModelObject()).buscar();
-//				target.addComponent(this.getParent().get("resultSection"));
+				getAlquilarPeliculasModel().buscar();
+				target.addComponent(this.getParent().get("resultSection"));
 			}
 		});
 
 		form.add(new AjaxButton("limpiar") {
 			@Override
 			protected void onSubmit(AjaxRequestTarget target, Form form) {
-//				((SeleccionarPelicula) this.getParent().getDefaultModelObject()).limpiar();
-//				target.addComponent(this.getParent());
+				getAlquilarPeliculasModel().limpiar();
+				target.addComponent(this.getParent());
 			}
 		});
 	}
@@ -75,7 +73,7 @@ public class SeleccionarPeliculasPanel extends Panel {
 		WebMarkupContainer resultSection = new WebMarkupContainer("resultSection");
 		resultSection.setOutputMarkupId(true);
 
-		resultSection.add(new ListView("list") {
+		resultSection.add(new ListView("peliculasPosibles") {
 			@Override
 			protected void populateItem(ListItem item) {
 				item.setModel(new CompoundPropertyModel(item.getModelObject()));
@@ -88,7 +86,7 @@ public class SeleccionarPeliculasPanel extends Panel {
 					@Override
 					public void onClick() {
 						Pelicula pelicula = (Pelicula) this.getParent().getDefaultModelObject();
-						getAlquilarPeliculasModel().agregarPelicula(pelicula);
+						getAlquilarPeliculasModel().alquilarPelicula(pelicula);
 					}
 				});
 			}
