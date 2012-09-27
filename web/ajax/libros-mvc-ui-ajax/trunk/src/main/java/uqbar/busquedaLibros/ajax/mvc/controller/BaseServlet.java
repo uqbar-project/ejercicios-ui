@@ -3,7 +3,7 @@ package uqbar.busquedaLibros.ajax.mvc.controller;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-import uqbar.busquedaLibros.ajax.mvc.applicationModel.BuscadorLibros;
+import uqbar.libros.applicationModel.BuscadorLibros;
 
 @SuppressWarnings("serial")
 public abstract class BaseServlet extends HttpServlet {
