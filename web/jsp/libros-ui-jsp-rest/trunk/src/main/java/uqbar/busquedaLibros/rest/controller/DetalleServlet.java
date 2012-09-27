@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import uqbar.busquedaLibros.rest.domain.Biblioteca;
-import uqbar.busquedaLibros.rest.domain.Libro;
+import uqbar.libros.domain.Biblioteca;
+import uqbar.libros.domain.Libro;
 
 @SuppressWarnings("serial")
 public class DetalleServlet extends HttpServlet {
