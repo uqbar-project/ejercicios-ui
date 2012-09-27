@@ -1,5 +1,7 @@
 package tadp.blocbaster.daos;
 
+import java.io.Serializable;
+
 import org.apache.commons.collections15.Predicate;
 import org.uqbar.commons.model.CollectionBasedHome;
 
@@ -8,7 +10,7 @@ import tadp.blocbaster.entidades.Pelicula;
 /**
  * @author Sergio
  */
-public class PeliculaDaoColeccionImpl extends CollectionBasedHome<Pelicula> {
+public class PeliculaDaoColeccionImpl extends CollectionBasedHome<Pelicula> implements Serializable {
 
 	public PeliculaDaoColeccionImpl() {
 		this.create(new Pelicula("El señor de los anillos 1", "Peter Jackson", "Epica"));
