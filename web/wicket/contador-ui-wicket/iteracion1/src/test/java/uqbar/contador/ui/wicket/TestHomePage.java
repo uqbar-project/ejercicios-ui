@@ -1,4 +1,4 @@
-package com.uqbar_project.edu.progui.primerEjemplo_ui_wicket;
+package uqbar.contador.ui.wicket;
 
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
