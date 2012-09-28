@@ -12,7 +12,6 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
  * 
  * @author npasserini
  */
-@SuppressWarnings("serial")
 @Observable
 public class RepositorioCelulares implements Serializable {
 	private static RepositorioCelulares instance;
@@ -28,7 +27,8 @@ public class RepositorioCelulares implements Serializable {
 	private RepositorioCelulares() {
 		this.create(new Celular("Natalia", 1588022202, RepositorioModelos.getInstance().get("NOKIA 1100"), false));
 		this.create(new Celular("Bernardo", 1566378124, RepositorioModelos.getInstance().get("Motorola M90"), true));
-		this.create(new Celular("Adalberto", 1569575222, RepositorioModelos.getInstance().get("Samsung Galaxy SII"), true));
+		this.create(new Celular("Adalberto", 1569575222, RepositorioModelos.getInstance().get("Samsung Galaxy SII"),
+			true));
 	}
 
 	// ********************************************************
@@ -38,6 +38,8 @@ public class RepositorioCelulares implements Serializable {
 	public void create(Celular celular) {
 		celular.validar();
 		this.validarClientesDuplicados(celular);
+
+		celular.setId(this.data.size() + 1);
 		this.data.add(celular);
 	}
 
@@ -82,7 +84,7 @@ public class RepositorioCelulares implements Serializable {
 		return expectedValue == null
 			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
 	}
-
+	
 	/**
 	 * Para el proyecto web - se mantiene la busqueda por Identificador
 	 * 

@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.bindings.NotNullObservable;
+import org.uqbar.arena.bindings.Transformer;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
@@ -45,13 +46,12 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 
 		this.createResultsGrid(mainPanel);
 		this.createGridActions(mainPanel);
-
 	}
 
-// *************************************************************************
-// * FORMULARIO DE BUSQUEDA 
-// *************************************************************************
-	
+	// *************************************************************************
+	// * FORMULARIO DE BUSQUEDA
+	// *************************************************************************
+
 	/**
 	 * El panel principal de búsuqeda permite filtrar por número o nombre
 	 */
@@ -93,10 +93,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 			.onClick(new MessageSend(this, "crearCelular"));
 	}
 
-// *************************************************************************
-// **  RESULTADOS DE LA BUSQUEDA 
-// *************************************************************************
-	
+	// *************************************************************************
+	// ** RESULTADOS DE LA BUSQUEDA
+	// *************************************************************************
+
 	/**
 	 * Se crea la grilla en el panel de abajo El binding es: el contenido de la grilla en base a los
 	 * resultados de la búsqueda Cuando el usuario presiona Buscar, se actualiza el model, y éste a su vez
@@ -126,10 +126,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 			.setFixedSize(150)
 			.bindContentsToProperty("nombre");
 
-		Column<Celular> numeroColumn = new Column<Celular>(table);
-		numeroColumn.setTitle("Número");
-		numeroColumn.setFixedSize(100);
-		numeroColumn.bindContentsToProperty("numero");
+		new Column<Celular>(table) //
+			.setTitle("Número")
+			.setFixedSize(100)
+			.bindContentsToProperty("numero");
 
 		Column<Celular> modeloColumn = new Column<Celular>(table);
 		modeloColumn.setTitle("Modelo");
@@ -169,9 +169,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	}
 
 	public void modificarCelular() {
-		this.openDialog(
-			new EditarCelularWindow(
-				this, this.getModelObject().getCelularSeleccionado()));
+		this.openDialog(new EditarCelularWindow(this, this.getModelObject().getCelularSeleccionado()));
 	}
 
 	protected void openDialog(Dialog<?> dialog) {

@@ -46,6 +46,7 @@ public class BuscadorCelular implements Serializable {
 	public void eliminarCelularSeleccionado() {
 		RepositorioCelulares.getInstance().delete(this.getCelularSeleccionado());
 		this.search();
+		this.celularSeleccionado = null;
 	}
 
 	// ********************************************************
