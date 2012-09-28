@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>Primer ejemplo Wicket</title>
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+	</head>
+	<body>
+		<div id="hd">
+			<div id="logo">
+				<img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
+				<h1>Apache Wicket</h1>
+			</div>
+		</div>
+		<div id="bd">
+			<h2>Contador</h2>
+			<p>
+				<span wicket:id="contador">contador</span>
+			</p>
+	        <br/>
+    	    <a href="#" wicket:id="sumar">Sumar</a>
+        	<a href="#" wicket:id="restar">Restar</a>			
+		</div>
+		<div id="ft">
+		</div>
+	</body>
+</html>
