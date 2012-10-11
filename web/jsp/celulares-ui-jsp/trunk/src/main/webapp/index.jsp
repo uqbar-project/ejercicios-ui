@@ -201,7 +201,7 @@ function procesarValidaciones() {
 	<tr>
 		<td align="center" colspan="2"><br />
 		<input type="button" value="Validar" onClick="javascript:validar();" /></td>
-		<input type="hidden" id="message" name="message" value="${requestScope.message}"/>
+		<input type="hidden" id="message" name="message" value="${message}"/>
 	</tr>
 </table>
 </form>
