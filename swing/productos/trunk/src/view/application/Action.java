@@ -41,6 +41,21 @@ public abstract class Action<Model> extends View<Model> implements
 	}
 
 	@Override
+	public void fireEvent(String eventType) {
+		this.getParent().fireEvent(eventType);
+	}
+
+	@Override
+	public void addEventListener(ViewEventListener eventListener) {
+		this.getParent().addEventListener(eventListener);
+	}
+
+	@Override
+	public void removeEventListener(ViewEventListener eventListener) {
+		this.getParent().removeEventListener(eventListener);
+	}
+
+	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		try {
 			this.action();

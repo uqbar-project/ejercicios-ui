@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.domain.Item;
+import model.domain.persistence.ApplicationContext;
 import model.domain.persistence.ItemHome;
-import model.domain.persistence.Repository;
 
 public class Stock {
 
@@ -40,7 +40,8 @@ public class Stock {
 
 	public void buscar() {
 		System.out.println("Buscando");
-		ItemHome home = Repository.getInstance().get(Item.class);
+		ItemHome home = (ItemHome) ApplicationContext.getInstance().get(
+				Item.class);
 		this.setResult(home.buscarPorNombreYCantidad(this.getNombre(),
 				this.getCantidad()));
 	}

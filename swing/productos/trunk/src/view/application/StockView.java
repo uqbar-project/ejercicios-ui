@@ -53,6 +53,12 @@ public class StockView extends View<Stock> {
 				this.getModel().limpiar();
 			}
 		});
+		this.addAction(buttons, new Action<Stock>("Nuevo Item") {
+			@Override
+			protected void action() {
+				this.fireEvent(StockApplication.NUEVO_ITEM);
+			}
+		});
 
 		jPanel.add(buttons);
 	}
@@ -73,7 +79,6 @@ public class StockView extends View<Stock> {
 				});
 		this.table.setFillsViewportHeight(true);
 		jPanel.add(scrollPane);
-
 	}
 
 	private void addFilters(final Container jPanel) {
@@ -117,16 +122,16 @@ public class StockView extends View<Stock> {
 	public void refresh() {
 		this.table.updateUI();
 		this.updateSelection();
-		this.nombreField.setText(this.model.getNombre());
-		this.cantidadText.setText(this.model.getCantidad() == null ? "" : this
-				.getModel().getCantidad().toString());
+		this.nombreField.setText(this.getModel().getNombre());
+		this.cantidadText.setText(this.getModel().getCantidad() == null ? ""
+				: this.getModel().getCantidad().toString());
 	}
 
 	private void updateSelection() {
 		this.table.getSelectionModel().clearSelection();
-		if (this.model.getSelected() != null) {
+		if (this.getModel().getSelected() != null) {
 			this.table.getSelectionModel().setSelectionInterval(0,
-					this.model.getSelectedIndex());
+					this.getModel().getSelectedIndex());
 		}
 
 	}

@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.domain.Item;
+import model.domain.Persistible;
 
-public class ItemCollectionHome extends CollectionHome<Item> implements ItemHome {
+@SuppressWarnings("unchecked")
+public class ItemCollectionHome implements ItemHome {
+
+	private final CollectionForHome collectionForHome = new CollectionForHome();
 
 	@Override
 	public List<Item> buscarPorNombre(String string) {
-		return filtrarPorNombre(string, this.cloneList());
+		return this
+				.filtrarPorNombre(string, this.collectionForHome.cloneList());
 	}
-
 
 	@Override
 	public List<Item> cantidadMenorIgualA(Integer cantidad) {
-		return filtrarPorCantidad(cantidad, this.cloneList());
+		return this.filtrarPorCantidad(cantidad,
+				this.collectionForHome.cloneList());
 	}
 
 	@Override
@@ -23,15 +28,15 @@ public class ItemCollectionHome extends CollectionHome<Item> implements ItemHome
 		return this.filtrarPorCantidad(cantidad, this.buscarPorNombre(nombre));
 	}
 
-	
-	//TODO abstraer a un predicate para evitar duplicar el algoritmo
+	// TODO abstraer a un predicate para evitar duplicar el algoritmo
 	private List<Item> filtrarPorNombre(String string, List<Item> source) {
-		if(source == null || string == null) {
-			return source; 
+		if (source == null || string == null) {
+			return source;
 		}
 		List<Item> list = new ArrayList<Item>();
-		for(Item item : source) {
-			if(item.getProducto().getNombre().contains(string)) {
+		for (Persistible itemObject : source) {
+			Item item = (Item) itemObject;
+			if (item.getProducto().getNombre().contains(string)) {
 				list.add(item);
 			}
 		}
@@ -39,22 +44,38 @@ public class ItemCollectionHome extends CollectionHome<Item> implements ItemHome
 	}
 
 	private List<Item> filtrarPorCantidad(Integer cantidad, List<Item> source) {
-		if(cantidad == null) {
-			return source; 
+		if (cantidad == null) {
+			return source;
 		}
 		List<Item> list = new ArrayList<Item>();
-		for(Item item : source) {
-			if(item.getCantidad() <= cantidad) {
+		for (Persistible itemObject : source) {
+			Item item = (Item) itemObject;
+			if (item.getCantidad() <= cantidad) {
 				list.add(item);
 			}
 		}
 		return list;
 	}
 
+	@Override
+	public Item findById(int code) {
+		return (Item) this.collectionForHome.findById(code);
+	}
 
+	@Override
+	public void insert(Item object) {
+		this.collectionForHome.insert(object);
 
+	}
 
+	@Override
+	public void update(Item object) {
+		this.collectionForHome.update(object);
+	}
+
+	@Override
+	public void delete(Item object) {
+		this.collectionForHome.insert(object);
+	}
 
 }
-
-

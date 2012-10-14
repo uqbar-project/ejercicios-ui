@@ -4,9 +4,20 @@ import java.util.List;
 
 import model.domain.Item;
 
-public interface ItemHome extends Home<Item> {
+public interface ItemHome extends Home {
+
+	Item findById(int code);
+
+	void insert(Item object);
+
+	void update(Item object);
+
+	void delete(Item object);
+
 	List<Item> buscarPorNombre(String string);
+
 	List<Item> cantidadMenorIgualA(Integer cantidad);
+
 	List<Item> buscarPorNombreYCantidad(String nombre, Integer cantidad);
-	
+
 }

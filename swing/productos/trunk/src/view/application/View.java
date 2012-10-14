@@ -2,6 +2,8 @@ package view.application;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -9,6 +11,10 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
 
 public abstract class View<Model> {
+
+	private Model model;
+	private Component visualComponent;
+	private final List<ViewEventListener> eventListeners = new ArrayList<ViewEventListener>();
 
 	public View(Model model) {
 		this.model = model;
@@ -18,8 +24,9 @@ public abstract class View<Model> {
 
 	}
 
-	protected Model model;
-	private Component visualComponent;
+	public void addEventListener(ViewEventListener eventListener) {
+		this.eventListeners.add(eventListener);
+	}
 
 	public void setModel(Model model) {
 		this.model = model;
@@ -27,6 +34,16 @@ public abstract class View<Model> {
 
 	public Model getModel() {
 		return this.model;
+	}
+
+	public void fireEvent(String eventType) {
+		for (ViewEventListener listener : this.eventListeners) {
+			listener.event(eventType, this);
+		}
+	}
+
+	public void removeEventListener(ViewEventListener eventListener) {
+		this.eventListeners.remove(eventListener);
 	}
 
 	/**

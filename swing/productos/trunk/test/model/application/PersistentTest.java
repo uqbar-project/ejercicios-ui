@@ -1,6 +1,6 @@
 package model.application;
 
-import model.domain.persistence.Repository;
+import model.domain.persistence.ApplicationContext;
 import model.persistence.Fixture;
 
 import org.junit.After;
@@ -16,7 +16,7 @@ public abstract class PersistentTest {
 
 	@After
 	public void tearDown() {
-		Repository.getInstance().clear();
+		ApplicationContext.getInstance().clear();
 		
 	}
 	
