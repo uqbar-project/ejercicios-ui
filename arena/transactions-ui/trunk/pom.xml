@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ar.edu.unq.tpi.tip</groupId>
+	<artifactId>transactions-ui-arena</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>example-ui</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<parent>
+		<groupId>uqbar</groupId>
+		<artifactId>arena-parent</artifactId>
+		<version>1.2-SNAPSHOT</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>ar.edu.unq.tpi.tip</groupId>
+			<artifactId>transactions-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>uqbar</groupId>
+			<artifactId>arena</artifactId>
+			<version>${arena-version}</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>junit</groupId> -->
+<!-- 			<artifactId>junit</artifactId> -->
+<!-- 			<version>4.8.2</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+	</dependencies>
+
+<!-- 	<build> -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>exec-maven-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<executable>java</executable> -->
+<!-- 					<mainClass>ar.edu.unq.tpi.tip.example_ui.BankApplication</mainClass> -->
+<!-- 					<arguments> -->
+<!-- 						<argument>java.system.class.loader=org.uqbar.arena.aop.ArenaClassLoader</argument> -->
+<!-- 					</arguments> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 		</plugins> -->
+<!-- 	</build> -->
+</project>
