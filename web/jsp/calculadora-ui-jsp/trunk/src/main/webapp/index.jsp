@@ -7,6 +7,9 @@
 	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" />
 	<title>Calculadora</title>
 	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<!--
+	<link type="text/css" rel="stylesheet" href="styles/conversor.css" />
+	-->
 </head>
 
 <body>
