@@ -46,40 +46,41 @@ public class AlquilarPeliculas extends AbstractVideoClubObject {
 	/*******************************************************************
 	 * FORMULARIO DE BUSQUEDA
 	 ******************************************************************/
+	
 	private Pelicula getExample() {
 		return this.searchPeliculas.getExample();
 	}
 
 	public List<String> getGenerosPosibles() {
-		return generosPosibles;
+		return this.generosPosibles;
 	}
 
 	public String getGenero() {
-		return getExample().getGenero();
+		return this.getExample().getGenero();
 	}
 
 	public void setGenero(String genero) {
-		getExample().setGenero(genero);
+		this.getExample().setGenero(genero);
 	}
 	
 	public String getNombre() {
-		return getExample().getNombre();
+		return this.getExample().getNombre();
 	}
 	
 	public void setNombre(String nombre) {
-		getExample().setNombre(nombre);
+		this.getExample().setNombre(nombre);
 	}
 	
 	public List<Pelicula> getPeliculasPosibles() {
-		return searchPeliculas.getResults();
+		return this.searchPeliculas.getResults();
 	}
 	
 	public void buscar() {
-		searchPeliculas.search();
+		this.searchPeliculas.search();
 	}
 
 	public void limpiar() {
-		searchPeliculas.clear();
+		this.searchPeliculas.clear();
 	}
 
 }

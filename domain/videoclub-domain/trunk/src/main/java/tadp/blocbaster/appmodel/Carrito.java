@@ -12,7 +12,6 @@ import tadp.blocbaster.entidades.Pelicula;
  */
 public class Carrito extends ObservableObject {
 	public static final String PELICULAS = "peliculas";
-
 	private List<Pelicula> peliculas;
 
 	public List<Pelicula> getPeliculas() {
