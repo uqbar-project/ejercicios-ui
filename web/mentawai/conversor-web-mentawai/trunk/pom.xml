@@ -2,11 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>uqbar-examples</groupId>
-  <artifactId>web-mentawai-conversor</artifactId>
+  <artifactId>conversor-web-mentawai</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>web-mentawai-conversor Maven Webapp</name>
-  <url>http://maven.apache.org</url>
   
   <dependencies>
   	<dependency>
@@ -22,6 +20,13 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>web-mentawai-conversor</finalName>
+    <finalName>conversor-web-mentawai</finalName>
+    <plugins>
+    		<plugin>
+			    <groupId>org.codehaus.mojo</groupId>
+				<artifactId>sysdeo-tomcat-maven-plugin</artifactId>
+    			<version>1.1</version>
+  			</plugin>
+    </plugins>
   </build>
 </project>

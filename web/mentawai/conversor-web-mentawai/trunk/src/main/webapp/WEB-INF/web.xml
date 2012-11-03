@@ -10,7 +10,7 @@
     <servlet-class>org.mentawai.core.Controller</servlet-class>
     <init-param>
     	<param-name>applicationManager</param-name>
-    	<param-value>uqbar.examples.web.mentawai.conversor.ConversorApplicationManager</param-value>
+    	<param-value>uqbar.examples.web.mentawai.conversor.basico.ConversorApplicationManager</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>

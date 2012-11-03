@@ -1,13 +1,14 @@
 <%@taglib prefix="mtw" uri="http://www.mentaframework.org/tags-mtw/"%>
 <html>
 <head>
+	<title>Conversor Web Mentawai</title>
 	<link type="text/css" rel="stylesheet" href="styles/conversor.css" />
 </head>
 <body>
 
-<div id="title">Conversor Millas a Km</div>
+<div id="title">Conversor Millas a Km: CON MODELO</div>
 
-	<mtw:form action="ConversorAction.convertir.mtw" method="post">
+	<mtw:form action="ConversorConModeloAction.convertir.mtw" method="post">
 	
  	<div class="row">
  		<label class="col1">Millas:&nbsp;&nbsp;</label>
