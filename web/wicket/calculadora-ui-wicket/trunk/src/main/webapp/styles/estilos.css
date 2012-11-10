@@ -1,0 +1,55 @@
+/* CSS Document */
+/* These are the basic UCL-CS styles.  */
+
+/* These styles apply to the whole page */   
+body {
+    background-color: #FFFFFF;
+    margin: 1px;
+    color: #444;
+    overflow: auto;
+    font-family: calibri, Helvetica, sans-serif;
+    font-size: 11pt;
+    padding: 10px;
+}
+
+.renglon {
+	padding: 3px;
+	align: center;
+}
+
+.boton {
+	height: 25px !important;
+	overflow: hidden;
+	background-color: #3E8A9A;
+	color: #FFFFFF;
+	font-size: 9pt;
+}
+
+.resultado {
+	border: 1px solid #3E8A9A;
+	height: 50px !important;
+	width: auto;
+	padding: 10px;
+	background-color: #EAF4FD;
+	font-size: 10pt;
+}
+
+.feedbackPanel {
+	height: auto;
+	width: auto;
+	background-color: #CCCCCC;
+	color: red;
+}
+
+.separador {
+	padding: 10px;
+}
+
+.label {
+	font-style: italic;
+}
+
+.container {
+	width: 800px;
+	margin: 0 auto;	
+}
