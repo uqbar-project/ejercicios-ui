@@ -3,7 +3,7 @@
 	http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ar.edu.frba.utn.tadp</groupId>
+	<groupId>org.uqbar.wicket</groupId>
 	<artifactId>videoclub-ui-wicket</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
