@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.uqbar.commons.model.UserException;
 import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioModelos;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
@@ -48,8 +49,11 @@ public class CelularServlet extends HttpServlet {
 		} catch (NumberFormatException e) {
 			// Error propio del adapter / controller
 			mensaje = "El número de teléfono no debe contener caracteres";
-		} catch (Exception e) {
+		} catch (UserException e) {
 			mensaje = e.getMessage();
+		} catch (Exception e) {
+			e.printStackTrace();
+			mensaje = "Ocurrió un error, consulte al administrador";
 		}
 		// Manejar la navegación, forwardeando el pedido al jsp con
 		// el resultado generado
