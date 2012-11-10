@@ -12,7 +12,7 @@
 	 ################################################################
 	 -->
 	<servlet>
-		<servlet-name>TADPVideoClubWicketWebApplication</servlet-name>
+		<servlet-name>WicketVideoClubApplication</servlet-name>
 		<servlet-class>org.apache.wicket.protocol.http.WicketServlet</servlet-class>
 		<init-param>
 			<param-name>applicationClassName</param-name>
@@ -29,7 +29,7 @@
 	 #####################################################################################
 	 -->
 	<servlet-mapping>
-		<servlet-name>TADPVideoClubWicketWebApplication</servlet-name>
+		<servlet-name>WicketVideoClubApplication</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 	
