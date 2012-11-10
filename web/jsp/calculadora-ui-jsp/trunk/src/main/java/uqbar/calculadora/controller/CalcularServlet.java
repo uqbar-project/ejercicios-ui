@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import uqbar.calculadora.domain.Calculadora;
 
-
 public class CalcularServlet extends HttpServlet {
 
 	private double variableLoca = 0;
@@ -22,9 +21,11 @@ public class CalcularServlet extends HttpServlet {
 		// Adaptar lo que la vista nos da para que el negocio lo reciba
 		double arg1 = Double.parseDouble(request.getParameter("arg1"));
 		double arg2 = Double.parseDouble(request.getParameter("arg2"));
+//		variableLoca++;
 
 		// Hablar con los objetos de negocio
 		Calculadora calculadora = new Calculadora(arg1, arg2);
+//		Calculadora calculadora = new Calculadora(arg1, variableLoca);
 		double resultado = calculadora.sumar();
 
 		// Manejar el estado --> usamos como contenedor el scope request
@@ -37,8 +38,7 @@ public class CalcularServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Originalmente el ejemplo redireccionaba el doGet hacia el doPost
 		// this.doPost(request, response);
 		// Ahora mostramos cómo se maneja el estado de un servlet
