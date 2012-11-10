@@ -13,8 +13,6 @@ import tadp.blocbaster.entidades.Socio;
 /**
  * @author jfernandes
  */
-//REFACTORME: despues de un refactor en el dominio parece que se perdieron los application models
-// del alquiler!
 public class AlquilarPeliculas extends AbstractVideoClubObject {
 	private Socio socio;
 	private List<String> generosPosibles;
