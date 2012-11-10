@@ -36,7 +36,8 @@ public class CalculadoraPage extends WebPage {
 		form.add(new Button("sumar") {
 			@Override
 			public void onSubmit() {
-				CalculadoraPage.this.calculadora.sumar();
+				// no necesitamos enviar el mensaje sumar
+				//CalculadoraPage.this.calculadora.sumar();
 			}
 		});
 
