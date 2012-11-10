@@ -10,7 +10,7 @@
 
 		<script language="javascript">
 			function get(param) {
-				return parseFloat(getWidget(param).value);
+				return getWidget(param).value;
 			}
 			
 			function getWidget(param) {
@@ -21,10 +21,11 @@
 				var operando1 = get("op1");
 				var operando2 = get("op2");
 				var result = eval(operando1 + operacion + operando2); 
-				document.getElementById("resultado").innerHTML = result;
+				getWidget("resultado").innerHTML = result;
 			}
 			
 			function actualizarEstado() {
+				// TODO: Evitar que con strings vacíos me habilite los botones
 				var op1 = isNaN(get("op1"));
 				var op2 = isNaN(get("op2"));
 				var inhabilitado = (op1 || op2);
