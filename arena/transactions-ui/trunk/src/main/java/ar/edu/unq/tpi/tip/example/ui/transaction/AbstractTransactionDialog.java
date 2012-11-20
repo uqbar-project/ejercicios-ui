@@ -31,12 +31,12 @@ public class AbstractTransactionDialog extends SearchWindow<Account, SimpleTrans
 		super(owner, model);
 	}
 	
-//	@Override
-//	protected void createMainTemplate(Panel formBuilder) {
-//		this.setTitle("Crear transaccion");
-//		this.setTaskDescription("Elegi las cuentas");
-//		super.createMainTemplate(formBuilder);
-//	}
+	@Override
+	protected void createMainTemplate(Panel formBuilder) {
+		this.setTitle("Crear transaccion");
+		this.setTaskDescription("Elegi las cuentas");
+		super.createMainTemplate(formBuilder);
+	}
 	
 	@Override
 	protected void createFormPanel(Panel parentPanel) {

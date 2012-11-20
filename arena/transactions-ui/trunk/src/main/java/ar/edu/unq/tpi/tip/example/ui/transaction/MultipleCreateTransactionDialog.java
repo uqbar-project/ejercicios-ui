@@ -37,13 +37,6 @@ public class MultipleCreateTransactionDialog extends AbstractTransactionDialog{
 		super(owner, new MultiTransacionApplicationModel(client));
 	}
 
-//	@Override
-//	protected void createMainTemplate(Panel formBuilder) {
-//		super.createMainTemplate(formBuilder);
-////		createTransactionGrid(formBuilder, "Transferencias", MultiTransacionApplicationModel.TRANSACTIONS);
-//	}
-
-
 	@Override
 	protected void createResultsGrid(Panel mainPanel) {
 		final Panel gridPanel = new Panel(mainPanel);

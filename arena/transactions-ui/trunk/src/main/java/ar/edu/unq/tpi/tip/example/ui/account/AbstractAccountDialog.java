@@ -26,11 +26,11 @@ public abstract class AbstractAccountDialog extends TransactionalDialog<Account>
 		this.home = Bank.getInstance().getHome(Account.class);
 	}
 	
-//	@Override
-//	protected void createMainTemplate(Panel mainPanel) {
-//		this.setTitle("ABM de Accounts");
-//		super.createMainTemplate(mainPanel);
-//	}
+	@Override
+	protected void createMainTemplate(Panel mainPanel) {
+		this.setTitle("ABM de Accounts");
+		super.createMainTemplate(mainPanel);
+	}
 
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
