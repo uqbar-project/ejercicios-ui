@@ -46,11 +46,25 @@ class RichContainer implements Container {
 
   static {
     standardWidgets.each { ConcreteWidget ->
-      RichContainer.metaClass."${selectorForWidget(ConcreteWidget)}" = { description ->
+      def selector = selectorForWidget(ConcreteWidget)
+      RichContainer.metaClass."${selector}" = {  ... args ->
+        def configurations = Arrays.asList(args)
+        
+        if (configurations.size() > 2)
+          throw new MissingMethodException(selector, RichContainer, args)
+          
         def widget = ConcreteWidget.newInstance([delegate.container]as Object[])
+        def (bindings, description) = bindingsAndDescription(widget, configurations)
         widget.describe(description)
+        widget.bind(bindings)    
       }
     }
+  }
+  
+  private static bindingsAndDescription(widget, configurations) {
+    def bindings = configurations.find { it instanceof Map } ?: [:]
+    def description = configurations.find { it instanceof Closure } ?: {}
+    [bindings, description]
   }
 
   static selectorForWidget(ConcreteWidget) {

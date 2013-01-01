@@ -32,8 +32,7 @@ class GroovyArenaExtensions {
   }
 
   private static makeDescriptive() {
-    Widget.metaClass {
-      describe = { description ->
+    Widget.metaClass.describe = { description ->
         def thisWidget = delegate
         def described = thisWidget instanceof Container ?
             new RichContainer(container: thisWidget) :
@@ -43,6 +42,18 @@ class GroovyArenaExtensions {
           it(thisWidget)
         }
         thisWidget
+    }
+  }
+  
+  private static makeBindable() {
+    Widget.metaClass.bind = { Map bindings ->
+      def thisWidget = delegate
+      bindings.each { binding, property ->
+        //fea consideración, habría que cambiar Arena para que respete una convencion
+        if(binding == "contents")
+          thisWidget.bindContents(property)
+        else
+          thisWidget."bind${binding.capitalize()}ToProperty"(property)
       }
     }
   }
@@ -64,6 +75,7 @@ class GroovyArenaExtensions {
 
   static {
     makeDescriptive()
+    makeBindable()
     supportClosuresAsActions()
   }
 }
