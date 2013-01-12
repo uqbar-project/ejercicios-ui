@@ -1,0 +1,108 @@
+package uqbar.videoclub.arena
+
+import java.util.Arrays
+import org.uqbar.arena.actions.MessageSend
+import org.uqbar.arena.aop.windows.TransactionalDialog
+import org.uqbar.arena.bindings.DateAdapter
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.commons.model.Home
+
+import tadp.blocbaster.daos.Videoclub
+import tadp.blocbaster.entidades.Ciudad
+import tadp.blocbaster.entidades.Socio
+
+/**
+ * @author npasserini
+ */
+abstract class AbstractSocioDialog extends TransactionalDialog {
+  def home
+
+  AbstractSocioDialog(WindowOwner owner, Socio model) {
+    super(owner, model)
+    this.home = Videoclub.instance.getHome(Socio)
+  }
+
+  @Override
+  void createMainTemplate(Panel mainPanel) {
+    title = "ABM de Socios"
+    super.createMainTemplate(mainPanel)
+  }
+
+  /*
+   *   def labeledTextBox =  { textAndBindings, description ->
+        label {
+          text = textAndBindings.text
+        }
+        textBox(textAndBindings, description)
+      }
+      
+      labeledTextBox(text: "Nombre", value: "nombre")
+      
+      labeledTextBox(text: "Direccion", value: "direccion")
+      
+      labeledTextBox(text: "Fecha de ingreso", value : "fecha") {
+        transformer = new DateAdapter()
+      }
+   */
+  @Override
+  void createFormPanel(Panel mainPanel) {
+    new Panel(mainPanel).describe {
+      layout = new ColumnLayout(2)
+      
+      label { 
+        text = "Nombre" 
+      }
+      textBox(value: "nombre")
+      
+      label {
+        text = "Direccion"
+      }
+      textBox(value: "direccion")
+      
+      label {
+        text = "Fecha de Ingreso"
+      }
+      textBox(value : "fecha") {
+        transformer = new DateAdapter()
+      }
+      
+      label {
+        text = "estado"
+      }
+      selector(value: "estado") {
+        setContents(Socio.Estado.values() as List, "nombre")
+      }
+      
+      label {
+        text = "ciudad"
+      }
+      selector(value: "ciudad") {
+        setContents(Videoclub.instance.getHome(Ciudad).allInstances() as List, "nombre")
+      }
+    }
+
+  }
+
+  @Override
+  void addActions(Panel actions) {
+    actions.describe {
+      button {
+        caption = "Aceptar"
+        onClick { accept() }
+        setAsDefault()
+        disableOnError()
+      }
+      button {
+        caption = "Cancelar"
+        onClick { cancel() }
+      }
+    }
+        
+  }
+}
