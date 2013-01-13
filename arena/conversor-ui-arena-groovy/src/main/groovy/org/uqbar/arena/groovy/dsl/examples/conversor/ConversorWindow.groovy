@@ -14,11 +14,7 @@ import org.uqbar.arena.windows.MainWindow
  * @see org.uqbar.arena.examples.conversor.ConversorWindow
  * @author flbulgarelli - versión groovy
  */
-class ConversorWindow extends MainWindow<Conversor> {
-
-  static {
-    GroovyArenaExtensions
-  }
+class ConversorWindow extends GroovyMainWindow {
 
   ConversorWindow() {
     super(new Conversor())
