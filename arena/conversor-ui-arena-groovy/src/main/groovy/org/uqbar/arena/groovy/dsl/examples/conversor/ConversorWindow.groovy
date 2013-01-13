@@ -37,7 +37,7 @@ class ConversorWindow extends MainWindow<Conversor> {
       }
       button {
         caption = "Convertir a kilómetros"
-        onClick { modelObject.convertir() }
+        onClick { this.modelObject.convertir() }
       }
       label {
         background = Color.ORANGE
