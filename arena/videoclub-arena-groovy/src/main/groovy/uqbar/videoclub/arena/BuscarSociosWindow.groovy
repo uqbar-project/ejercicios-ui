@@ -44,8 +44,7 @@ class BuscarSociosWindow extends SearchWindow {
   @Override
   void createFormPanel(Panel mainPanel) {
     mainPanel.describe {
-      panel {
-        bindContents(SearchByExample.EXAMPLE)
+      panel(contents: "example") {
         layout = new ColumnLayout(2)
         
         label { text = "Nombre" }
