@@ -10,7 +10,7 @@ import tadp.blocbaster.entidades.Socio
  */
 class CrearSocioDialog extends AbstractSocioDialog {
 
-  public CrearSocioDialog(WindowOwner owner) {
+  CrearSocioDialog(WindowOwner owner) {
     super(owner, new Socio())
   }
 

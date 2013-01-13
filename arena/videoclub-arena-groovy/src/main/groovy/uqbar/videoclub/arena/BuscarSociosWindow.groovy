@@ -110,8 +110,8 @@ class BuscarSociosWindow extends SearchWindow {
   // ********************************************************
 
   void crearSocio() {
-    new CrearSocioDialog(this).with {
-      onAccept( new MessageSend(this.modelObject, "search"))
+    new CrearSocioDialog(this).describe {
+      onAccept { this.modelObject.search() }
       open()
     }
   }
