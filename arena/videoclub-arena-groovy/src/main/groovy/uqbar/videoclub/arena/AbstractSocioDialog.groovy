@@ -52,41 +52,32 @@ abstract class AbstractSocioDialog extends TransactionalDialog {
    */
   @Override
   void createFormPanel(Panel mainPanel) {
-    new Panel(mainPanel).describe {
-      layout = new ColumnLayout(2)
-      
-      label { 
-        text = "Nombre" 
-      }
-      textBox(value: "nombre")
-      
-      label {
-        text = "Direccion"
-      }
-      textBox(value: "direccion")
-      
-      label {
-        text = "Fecha de Ingreso"
-      }
-      textBox {
-        bindValueToProperty("fecha").setTransformer(new DateAdapter())
-     }
-      
-      label {
-        text = "Estado"
-      }
-      selector(value: "estado") {
-        setContents(Socio.Estado.values() as List, "nombre")
-      }
-      
-      label {
-        text = "Ciudad"
-      }
-      selector(value: "ciudad") {
-        setContents(Ciudad.home.allInstances() as List, "nombre")
+    mainPanel.describe {
+      panel {
+        layout = new ColumnLayout(2)
+        
+        label { text = "Nombre" }
+        textBox(value: "nombre")
+
+        label { text = "Direccion" }
+        textBox(value: "direccion")
+
+        label { text = "Fecha de Ingreso" }
+        textBox {
+          bindValueToProperty("fecha").setTransformer(new DateAdapter())
+        }
+
+        label { text = "Estado" }
+        selector(value: "estado") {
+          setContents(Socio.Estado.values() as List, "nombre")
+        }
+
+        label { text = "Ciudad" }
+        selector(value: "ciudad") {
+          setContents(Ciudad.home.allInstances() as List, "nombre")
+        }
       }
     }
-
   }
 
   @Override
@@ -94,13 +85,13 @@ abstract class AbstractSocioDialog extends TransactionalDialog {
     actions.describe {
       button {
         caption = "Aceptar"
-        onClick { accept() }
+        onClick { this.accept() }
         setAsDefault()
         disableOnError()
       }
       button {
         caption = "Cancelar"
-        onClick { cancel() }
+        onClick { this.cancel() }
       }
     }
         

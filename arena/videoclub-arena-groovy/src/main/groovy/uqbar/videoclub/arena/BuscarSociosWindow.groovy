@@ -35,32 +35,29 @@ class BuscarSociosWindow extends SearchWindow {
 
   @Override
   void createMainTemplate(Panel formBuilder) {
-    this.setTitle("Buscador de Socios")
-    this.setTaskDescription("Ingrese los parámetros de búsqueda")
+    title = "Buscador de Socios"
+    taskDescription = "Ingrese los parámetros de búsqueda"
+    
     super.createMainTemplate(formBuilder)
   }
 
   @Override
   void createFormPanel(Panel mainPanel) {
-    Panel searchFormPanel = new Panel(mainPanel)
-    searchFormPanel.describe {
-      bindContents(SearchByExample.EXAMPLE)
-      layout = new ColumnLayout(2)
-      label {
-        text = "Nombre"
-      }
-      textBox(value: "nombre" ) 
-      
-      label {
-        text = "Direccion"
-      }
-      textBox(value: "direccion") 
-      
-      label {
-        text = "Estado"
-      }
-      selector( value: "estado") {
-        setContents(Socio.Estado.values() as List, "nombre")
+    mainPanel.describe {
+      panel {
+        bindContents(SearchByExample.EXAMPLE)
+        layout = new ColumnLayout(2)
+        
+        label { text = "Nombre" }
+        textBox(value: "nombre" )
+
+        label { text = "Direccion" }
+        textBox(value: "direccion")
+
+        label { text = "Estado" }
+        selector( value: "estado") {
+          setContents(Socio.Estado.values() as List, "nombre")
+        }
       }
     }
   }
@@ -100,7 +97,7 @@ class BuscarSociosWindow extends SearchWindow {
     actionsPanel.describe {
       button {
         caption = "Nuevo Socio"
-        onClick { crearSocio() }
+        onClick { this.crearSocio() }
       }
     }
   }
