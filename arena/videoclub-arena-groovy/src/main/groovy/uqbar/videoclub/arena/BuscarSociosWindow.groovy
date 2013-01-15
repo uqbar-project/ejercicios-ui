@@ -41,17 +41,22 @@ class BuscarSociosWindow extends SearchWindow {
     super.createMainTemplate(formBuilder)
   }
 
+  def labeledTextBox(parent, labelText, valueBinding) {
+    parent.describe {
+      label { text = labelText }
+      textBox(value: valueBinding)
+    }
+  }
+  
   @Override
   void createFormPanel(Panel mainPanel) {
     mainPanel.describe {
       panel(contents: "example") {
         layout = new ColumnLayout(2)
         
-        label { text = "Nombre" }
-        textBox(value: "nombre" )
+        this.labeledTextBox(it, "Nombre", "nombre")
 
-        label { text = "Direccion" }
-        textBox(value: "direccion")
+        this.labeledTextBox(it, "Direccion", "direccion")
 
         label { text = "Estado" }
         selector( value: "estado") {
