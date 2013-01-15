@@ -14,7 +14,7 @@ import org.uqbar.arena.widgets.tree.Tree
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.lacar.ui.model.Action
-
+import static org.uqbar.arena.groovy.GroovyArenaExtensions.*
 /**
  * Ejemplo de conversor de medidas con el framework Arena. Es una ventana que tiene como modelo una instancia
  * de la clase {@link Conversor}.
@@ -52,7 +52,7 @@ class ConversorWindow extends MainWindow<Conversor> {
         }
         new Button(it).with {
           caption = "Convertir a kilómetros"
-          onClick({ this.modelObject.convertir() } as Action) 
+          onClick(action { this.modelObject.convertir() }) 
         }
         new Label(it).with {
           background = Color.ORANGE
