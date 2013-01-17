@@ -5,6 +5,9 @@ apply plugin: 'arena'
 dependencies {
   groovy 'org.codehaus.groovy:groovy:2.0.3'
   compile 'uqbar:arena-groovy:1.0-SNAPSHOT'
+  compile('uqbar-examples:videoclub-domain:3.0-SNAPSHOT') {
+    exclude group: 'asm', module: 'asm'
+  }
 }
 
 repositories {
