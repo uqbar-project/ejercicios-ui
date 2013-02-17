@@ -32,10 +32,8 @@ abstract class SearchWindow extends SimpleWindow {
 
   void createResultsGrid(Panel mainPanel) {
     mainPanel.describe {
-      table {
+      table(items: "results", selection: "selected") {
         itemType = this.modelObject.entityType
-        bindItemsToProperty(Search.RESULTS)
-        bindSelection(Search.SELECTED)
         this.describeResultsGrid(it)
       }
     }
