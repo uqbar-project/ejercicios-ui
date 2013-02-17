@@ -2,6 +2,7 @@ package uqbar.videoclub.arena
 
 import org.uqbar.arena.actions.MessageSend
 import org.uqbar.arena.bindings.NotNullObservable
+import org.uqbar.arena.groovy.dsl.GroovyArenaExtensions;
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Panel
@@ -30,10 +31,13 @@ abstract class SearchWindow extends SimpleWindow {
   // ***********************************************************
 
   void createResultsGrid(Panel mainPanel) {
-    new Table(mainPanel, modelObject.entityType).with {
-      bindItemsToProperty(Search.RESULTS)
-      bindSelection(Search.SELECTED)
-      describeResultsGrid(it)
+    mainPanel.describe {
+      table {
+        itemType = this.modelObject.entityType
+        bindItemsToProperty(Search.RESULTS)
+        bindSelection(Search.SELECTED)
+        this.describeResultsGrid(it)
+      }
     }
   }
 
@@ -52,23 +56,24 @@ abstract class SearchWindow extends SimpleWindow {
         setAsDefault()        
       }
     }
-
     // TODO Ver si agregamos la acción de limpiar:
     // new Button(actions).setCaption("Limpiar").onClick(new MessageSend(getModel(), "clear"));
   }
 
   void createGridActions(Panel mainPanel) {
-    new Panel(mainPanel).describe {
-      layout = new HorizontalLayout()
-      button {
-        caption = "Edit"
-        bindEnabled(new NotNullObservable(Search.SELECTED))
-        onClick { startEdition() }
-      }
-      button {
-        caption = "Remove"
-        bindEnabled(new NotNullObservable(Search.SELECTED))
-        onClick{ modelObject.removeSelected() }
+    mainPanel.describe { 
+      panel {
+        layout = new HorizontalLayout()
+        button {
+          caption = "Edit"
+          bindEnabled(new NotNullObservable(Search.SELECTED))
+          onClick { this.startEdition() }
+        }
+        button {
+          caption = "Remove"
+          bindEnabled(new NotNullObservable(Search.SELECTED))
+          onClick { this.modelObject.removeSelected() }
+        }
       }
     }
   }
