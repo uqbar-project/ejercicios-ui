@@ -34,22 +34,6 @@ abstract class AbstractSocioDialog extends TransactionalDialog {
     super.createMainTemplate(mainPanel)
   }
 
-  /*
-   *   def labeledTextBox =  { textAndBindings, description ->
-        label {
-          text = textAndBindings.text
-        }
-        textBox(textAndBindings, description)
-      }
-      
-      labeledTextBox(text: "Nombre", value: "nombre")
-      
-      labeledTextBox(text: "Direccion", value: "direccion")
-      
-      labeledTextBox(text: "Fecha de ingreso", value : "fecha") {
-        transformer = new DateAdapter()
-      }
-   */
   @Override
   void createFormPanel(Panel mainPanel) {
     mainPanel.describe {
