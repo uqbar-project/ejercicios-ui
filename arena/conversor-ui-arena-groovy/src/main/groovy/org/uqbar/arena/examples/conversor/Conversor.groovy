@@ -2,8 +2,8 @@ package org.uqbar.arena.examples.conversor
 
 import org.uqbar.commons.utils.Observable
 
-@Observable
-class Conversor {
+
+@Observable class Conversor {
   double millas
   double kilometros
 
