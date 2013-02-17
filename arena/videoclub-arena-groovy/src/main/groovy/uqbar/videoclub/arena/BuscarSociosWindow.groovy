@@ -66,30 +66,31 @@ class BuscarSociosWindow extends SearchWindow {
   }
 
   @Override
-  void describeResultsGrid(Table<Socio> table) {
-    Column<Socio> nombreColumn = new Column<Socio>(table)
-    nombreColumn.setTitle("Nombre")
-    nombreColumn.setFixedSize(200)
-    nombreColumn.bindContentsToProperty(Socio.NOMBRE)
-    // table.add(column);
-
-    Column<Socio> ingresoColumn = new Column<Socio>(table)
-    ingresoColumn.setTitle("Fecha de ingreso")
-    ingresoColumn.setFixedSize(200)
-    ingresoColumn.bindContentsToTransformer(new Transformer<Socio, String>() {
-          @Override
-          String transform(Socio socio) {
-            new SimpleDateFormat("dd/MM/yyyy").format(socio.getFecha())
-          }
-        })
-
-    Column<Socio> direccionColumn = new Column<Socio>(table)
-    direccionColumn.setTitle("Direccion")
-    direccionColumn.setFixedSize(200)
-    direccionColumn.bindContentsToProperty(Socio.DIRECCION)
-
-    table.setHeigth(300)
-    table.setWidth(600)
+  void describeResultsGrid(Table table) {
+    table.describe {
+      heigth = 300
+      width = 600
+      
+      column {
+        title = "Nombre"
+        fixedSize = 200
+        bindContentsToProperty(Socio.NOMBRE)
+      }
+      column {
+        title = "Fecha de ingreso"
+        fixedSize = 200
+        bindContentsToTransformer(new Transformer<Socio, String>() {
+              String transform(Socio socio) {
+                socio.fecha.format("dd/MM/yyyy")
+              }
+            })
+      }
+      column {
+        title = "Direccion"
+        fixedSize = 200
+        bindContentsToProperty(Socio.DIRECCION)
+      }
+    }
   }
 
   @Override
