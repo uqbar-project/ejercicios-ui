@@ -4,35 +4,35 @@ import org.uqbar.commons.utils.Observable
 
 @Observable
 class Conversor {
-	private double millas
-	private double kilometros
+  private double millas
+  private double kilometros
 
-	// ********************************************************
-	// ** Acciones
-	// ********************************************************
-	
-	void convertir() {
-		kilometros = millas * 1.60934
-	}
-	
-	// ********************************************************
-	// ** Atributos
-	// ********************************************************
+  // ********************************************************
+  // ** Acciones
+  // ********************************************************
 
-	double getMillas() {
-		this.millas
-	}
+  void convertir() {
+    kilometros = millas * 1.60934
+  }
 
-	void setMillas(double millas) {
-		this.millas = millas
-	}
+  // ********************************************************
+  // ** Atributos
+  // ********************************************************
 
-	double getKilometros() {
-		this.kilometros
-	}
+  double getMillas() {
+    this.millas
+  }
 
-	void setKilometros(double kilometros) {
-		this.kilometros = kilometros
-	}
+  void setMillas(double millas) {
+    this.millas = millas
+  }
+
+  double getKilometros() {
+    this.kilometros
+  }
+
+  void setKilometros(double kilometros) {
+    this.kilometros = kilometros
+  }
 
 }

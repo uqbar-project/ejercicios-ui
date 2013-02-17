@@ -2,13 +2,17 @@ package org.uqbar.arena.examples.conversor
 
 import java.awt.Color
 
-import org.uqbar.arena.actions.MessageSend
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.widgets.Widget
+import org.uqbar.arena.widgets.tree.Tree
+import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.MainWindow
+import org.uqbar.lacar.ui.model.Action
 
 /**
  * Ejemplo de conversor de medidas con el framework Arena. Es una ventana que tiene como modelo una instancia
@@ -27,32 +31,39 @@ import org.uqbar.arena.windows.MainWindow
  * @author npasserini
  */
 class ConversorWindow extends MainWindow<Conversor> {
+  
+  static {
+    GroovyArenaExtensions
+  }
 
-	ConversorWindow() {
-		super(new Conversor())
-	}
+  ConversorWindow() {
+    super(new Conversor())
+  }
 
-	@Override
-	void createContents(Panel mainPanel) {
-		this.setTitle("Conversor de millas a kilómetros")
-		mainPanel.setLayout(new VerticalLayout())
+  @Override
+  void createContents(Panel mainPanel) {
+    title = "Conversor de millas a kilómetros"
+    mainPanel.layout = new VerticalLayout()
+    new Label(mainPanel).describe { //
+      text = "Ingrese la longitud en millas" //
+    }
+    new TextBox(mainPanel).describe { //
+      bindValueToProperty("millas") //
+    }
+    new Button(mainPanel).describe {
+      caption = "Convertir a kilómetros"
+      onClick { modelObject.convertir() }
+    }
+    new Label(mainPanel).describe {
+      background = Color.ORANGE
+      bindValueToProperty("kilometros")
+    }
+    new Label(mainPanel).describe { //
+      text = " kilómetros" //
+    }
+  }
 
-		new Label(mainPanel).setText("Ingrese la longitud en millas")
-
-		new TextBox(mainPanel).bindValueToProperty("millas")
-
-		new Button(mainPanel) //
-			.setCaption("Convertir a kilómetros")
-			.onClick(new MessageSend(this.getModelObject(), "convertir"))
-
-		new Label(mainPanel) //
-			.setBackground(Color.ORANGE)
-			.bindValueToProperty("kilometros")
-
-		new Label(mainPanel).setText(" kilómetros")
-	}
-
-	static void main(String[] args) {
-		new ConversorWindow().startApplication()
-	}
+  static void main(String[] args) {
+    new ConversorWindow().startApplication()
+  }
 }
