@@ -44,7 +44,7 @@ abstract class SearchWindow extends SimpleWindow {
   // ***********************************************************
 
   @Override
-  protected void addActions(Panel actionsPanel) {
+  void addActions(Panel actionsPanel) {
     actionsPanel.describe {
       button {
         caption = "Buscar"
@@ -57,7 +57,7 @@ abstract class SearchWindow extends SimpleWindow {
     // new Button(actions).setCaption("Limpiar").onClick(new MessageSend(getModel(), "clear"));
   }
 
-  protected void createGridActions(Panel mainPanel) {
+  void createGridActions(Panel mainPanel) {
     new Panel(mainPanel).describe {
       layout = new HorizontalLayout()
       button {
@@ -79,11 +79,11 @@ abstract class SearchWindow extends SimpleWindow {
 
   void startEdition() {
     createEditor(modelObject.selected).describe {
-      onAccept { this.modelObject.search() }
+      onAccept { this.modelObject.search() } 
       open()
     }
   }
 
-  protected abstract Dialog createEditor(selected)
+  abstract Dialog createEditor(selected)
 
 }
