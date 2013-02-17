@@ -63,9 +63,7 @@ abstract class AbstractSocioDialog extends TransactionalDialog {
         textBox(value: "direccion")
 
         label { text = "Fecha de Ingreso" }
-        textBox {
-          bindValueToProperty("fecha").setTransformer(new DateAdapter())
-        }
+        textBox(value: "fecha".adaptDate()) 
 
         label { text = "Estado" }
         selector(value: "estado") {

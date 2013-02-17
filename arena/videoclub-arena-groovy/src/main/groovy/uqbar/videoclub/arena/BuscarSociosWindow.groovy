@@ -71,10 +71,9 @@ class BuscarSociosWindow extends SearchWindow {
         title = "Nombre"
         fixedSize = 200
       }
-      column {
+      column(contents: {it.fecha.format("dd/MM/yyyy")}) {
         title = "Fecha de ingreso"
         fixedSize = 200
-        bindContentsToTransformer { Socio socio -> socio.fecha.format("dd/MM/yyyy") }
       }
       column(contents: "direccion") {
         title = "Direccion"

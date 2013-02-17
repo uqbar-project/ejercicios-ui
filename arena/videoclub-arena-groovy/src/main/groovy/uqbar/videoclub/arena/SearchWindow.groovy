@@ -1,16 +1,13 @@
 package uqbar.videoclub.arena
 
-import org.uqbar.arena.actions.MessageSend
-import org.uqbar.arena.bindings.NotNullObservable
-import org.uqbar.arena.groovy.dsl.GroovyArenaExtensions;
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.commons.model.Search
+import org.uqbar.lacar.ui.model.adapter.NotNullTransformer
 
 abstract class SearchWindow extends SimpleWindow {
   static final long serialVersionUID = 1L
@@ -62,14 +59,12 @@ abstract class SearchWindow extends SimpleWindow {
     mainPanel.describe { 
       panel {
         layout = new HorizontalLayout()
-        button {
+        button(enabled: "selected".notNull()) {
           caption = "Edit"
-          bindEnabled(new NotNullObservable(Search.SELECTED))
           onClick { this.startEdition() }
         }
-        button {
+        button(enabled: "selected".notNull()) {
           caption = "Remove"
-          bindEnabled(new NotNullObservable(Search.SELECTED))
           onClick { this.modelObject.removeSelected() }
         }
       }
