@@ -3,10 +3,8 @@ package org.uqbar.arena.groovy.dsl.binding.examples.conversor
 import java.awt.Color
 
 import org.uqbar.arena.examples.conversor.Conversor
-import org.uqbar.arena.groovy.dsl.GroovyArenaExtensions
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.windows.MainWindow
 
 /**
  * Variante de {@link org.uqbar.arena.groovy.dsl.examples.conversor.ConversorWindow}, 
@@ -14,11 +12,7 @@ import org.uqbar.arena.windows.MainWindow
  * 
  * @author flbulgarelli - versión groovy
  */
-class ConversorWindow extends MainWindow<Conversor> {
-
-  static {
-    GroovyArenaExtensions
-  }
+class ConversorWindow extends GroovyMainWindow {
 
   ConversorWindow() {
     super(new Conversor())
