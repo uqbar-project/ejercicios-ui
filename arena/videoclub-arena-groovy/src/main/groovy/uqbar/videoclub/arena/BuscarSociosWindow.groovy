@@ -67,10 +67,9 @@ class BuscarSociosWindow extends SearchWindow {
       heigth = 300
       width = 600
       
-      column {
+      column(contents: "nombre") {
         title = "Nombre"
         fixedSize = 200
-        bindContentsToProperty(Socio.NOMBRE)
       }
       column {
         title = "Fecha de ingreso"
@@ -81,10 +80,9 @@ class BuscarSociosWindow extends SearchWindow {
               }
             })
       }
-      column {
+      column(contents: "direccion") {
         title = "Direccion"
         fixedSize = 200
-        bindContentsToProperty(Socio.DIRECCION)
       }
     }
   }
