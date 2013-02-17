@@ -1,0 +1,12 @@
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+
+dependencies {
+  groovy 'org.codehaus.groovy:groovy:2.0.3'
+  compile 'uqbar:arena-groovy:1.0-SNAPSHOT'
+}
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
