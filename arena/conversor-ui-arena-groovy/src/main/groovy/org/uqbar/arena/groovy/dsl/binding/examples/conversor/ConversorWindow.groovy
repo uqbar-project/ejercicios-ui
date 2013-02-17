@@ -3,6 +3,7 @@ package org.uqbar.arena.groovy.dsl.binding.examples.conversor
 import java.awt.Color
 
 import org.uqbar.arena.examples.conversor.Conversor
+import org.uqbar.arena.groovy.GroovyMainWindow;
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Panel
 
