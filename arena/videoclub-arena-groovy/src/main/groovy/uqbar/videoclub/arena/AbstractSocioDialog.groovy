@@ -25,7 +25,7 @@ abstract class AbstractSocioDialog extends TransactionalDialog {
 
   AbstractSocioDialog(WindowOwner owner, Socio model) {
     super(owner, model)
-    this.home = Videoclub.instance.getHome(Socio)
+    this.home = Socio.home
   }
 
   @Override
@@ -68,22 +68,22 @@ abstract class AbstractSocioDialog extends TransactionalDialog {
       label {
         text = "Fecha de Ingreso"
       }
-      textBox(value : "fecha") {
-        transformer = new DateAdapter()
-      }
+      textBox {
+        bindValueToProperty("fecha").setTransformer(new DateAdapter())
+     }
       
       label {
-        text = "estado"
+        text = "Estado"
       }
       selector(value: "estado") {
         setContents(Socio.Estado.values() as List, "nombre")
       }
       
       label {
-        text = "ciudad"
+        text = "Ciudad"
       }
       selector(value: "ciudad") {
-        setContents(Videoclub.instance.getHome(Ciudad).allInstances() as List, "nombre")
+        setContents(Ciudad.home.allInstances() as List, "nombre")
       }
     }
 

@@ -6,6 +6,8 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 import org.uqbar.arena.windows.Window
 
+import tadp.blocbaster.daos.Videoclub;
+
 /**
  * Punto de entrada para ejecutar la aplicacion del videoclub con el framework
  * Arena + eclipse jface.
@@ -16,6 +18,9 @@ class VideoclubApplication extends Application {
   
     static {
       GroovyArenaExtensions
+      Class.metaClass {
+        getHome = {  Videoclub.instance.getHome(delegate) }
+      }
     }
   
 	static void main(String[] args) {

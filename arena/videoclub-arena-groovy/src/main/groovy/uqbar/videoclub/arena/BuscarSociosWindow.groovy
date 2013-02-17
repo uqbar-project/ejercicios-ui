@@ -3,9 +3,8 @@ package uqbar.videoclub.arena
 import java.text.SimpleDateFormat
 import java.util.Arrays
 
-import org.uqbar.arena.actions.MessageSend
+import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Control
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
@@ -15,8 +14,8 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.commons.model.Search
 import org.uqbar.commons.model.SearchByExample
+import org.uqbar.lacar.ui.model.Action
 
 import tadp.blocbaster.daos.Videoclub
 import tadp.blocbaster.entidades.Socio
@@ -31,7 +30,7 @@ import com.uqbar.commons.collections.Transformer
 class BuscarSociosWindow extends SearchWindow {
 
   BuscarSociosWindow(WindowOwner owner) {
-    super(owner, new SearchByExample(Videoclub.instance.getHome(Socio)))
+    super(owner, new SearchByExample(Socio.home))
   }
 
   @Override
@@ -44,25 +43,26 @@ class BuscarSociosWindow extends SearchWindow {
   @Override
   void createFormPanel(Panel mainPanel) {
     Panel searchFormPanel = new Panel(mainPanel)
-    searchFormPanel.bindContents(SearchByExample.EXAMPLE)
-    searchFormPanel.setLayout(new ColumnLayout(2))
-
-    // Field nombre
-    Label nombreLabel = new Label(searchFormPanel)
-    nombreLabel.setText("Nombre")
-
-    Control nombre = new TextBox(searchFormPanel)
-    nombre.bindValueToProperty(Socio.NOMBRE)
-
-    // Field direccion
-    Label direccionLabel = new Label(searchFormPanel)
-    direccionLabel.setText("Direccion")
-
-    Control direccion = new TextBox(searchFormPanel)
-    direccion.bindValueToProperty(Socio.DIRECCION)
-
-    new Label(searchFormPanel).setText("Estado")
-    new Selector(searchFormPanel).setContents(Arrays.asList(Socio.Estado.values()), "nombre").bindValueToProperty("estado")
+    searchFormPanel.describe {
+      bindContents(SearchByExample.EXAMPLE)
+      layout = new ColumnLayout(2)
+      label {
+        text = "Nombre"
+      }
+      textBox(value: "nombre" ) 
+      
+      label {
+        text = "Direccion"
+      }
+      textBox(value: "direccion") 
+      
+      label {
+        text = "Estado"
+      }
+      selector( value: "estado") {
+        setContents(Socio.Estado.values() as List, "nombre")
+      }
+    }
   }
 
   @Override
@@ -94,11 +94,14 @@ class BuscarSociosWindow extends SearchWindow {
 
   @Override
   void addActions(Panel actionsPanel) {
-    new Button(actionsPanel).with {
-      setCaption("Nuevo Socio")
-      onClick(new MessageSend(this, "crearSocio"))
-    }
     super.addActions(actionsPanel)
+    
+    actionsPanel.describe {
+      button {
+        caption = "Nuevo Socio"
+        onClick { crearSocio() }
+      }
+    }
   }
 
   // ********************************************************
@@ -107,7 +110,7 @@ class BuscarSociosWindow extends SearchWindow {
 
   void crearSocio() {
     new CrearSocioDialog(this).with {
-      onAccept(new MessageSend(this.getModelObject(), Search.SEARCH))
+      onAccept( new MessageSend(this.modelObject, "search"))
       open()
     }
   }

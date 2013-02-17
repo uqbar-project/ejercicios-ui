@@ -48,7 +48,7 @@ abstract class SearchWindow extends SimpleWindow {
     actionsPanel.describe {
       button {
         caption = "Buscar"
-        onClick(new MessageSend(modelObject, Search.SEARCH))
+        onClick { this.modelObject.search() }
         setAsDefault()        
       }
     }
@@ -79,7 +79,7 @@ abstract class SearchWindow extends SimpleWindow {
 
   void startEdition() {
     createEditor(modelObject.selected).describe {
-      onAccept(new MessageSend(modelObject, Search.SEARCH))
+      onAccept { this.modelObject.search() }
       open()
     }
   }
